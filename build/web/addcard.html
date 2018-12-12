@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>CGSS TAKE MY MONEY</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <form method="post" action="process.jsp" accept-charset="UTF-8">
+        卡片名称:<br>
+        <input type="text" name="card_name">
+        <br>
+        角色编号:<br>
+        <input type="text" name="chara_id">
+        <br>
+        稀有度:<br>
+        <input type="radio" name="rarity_id" value="1">N
+        <input type="radio" name="rarity_id" value="2">R
+        <input type="radio" name="rarity_id" value="3">SR
+        <input type="radio" name="rarity_id" value="4">SSR
+        <br><br>
+        <input type="submit" value="submit">
+        </form>
+    </body>
+</html>
