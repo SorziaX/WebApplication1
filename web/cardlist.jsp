@@ -17,7 +17,7 @@
     </head>
     <body>
             <a href="index.html">返回</a>
-            <a href="addcard.html">添加卡牌</a>
+            <a href="addcard.jsp">添加卡牌</a>
 
             <table border ="1">
                 <tr>
