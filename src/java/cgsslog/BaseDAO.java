@@ -56,7 +56,8 @@ public class BaseDAO {
             //数据库名 
             String dbName=prop.getProperty("dbName"); 
 
-            String url="jdbc:mysql://"+mysqlServer+"/"+dbName+"?user="+userName+"&password="+userPasswd;
+            String url="jdbc:mysql://"+mysqlServer+"/"+dbName+"?user="+userName
+                      +"&password="+userPasswd+"&useUnicode=true&characterEncoding=UTF-8";
             System.out.println(url);
 
             this.con = DriverManager.getConnection(url);
