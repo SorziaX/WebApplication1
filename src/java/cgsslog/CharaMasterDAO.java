@@ -72,6 +72,13 @@ public class CharaMasterDAO extends BaseDAO{
 
     public CharaMaster selectChara(int id){
         
+        Type type = new Type(0, null);
+        Seiza seiza = new Seiza(0, null);
+        Hometown hometown = new Hometown(0, null, null);
+                
+        CharaMaster cm = new CharaMaster(0, null, null, null, type, 0, 0, 0,
+                            null, seiza, hometown, null, null, null);
+            
         String sql = null;
         int charaId = id;
         
@@ -88,32 +95,32 @@ public class CharaMasterDAO extends BaseDAO{
         ResultSet rs2 = this.execute(sql);
                 
         try{
-                String nameKanji = rs2.getString(2);
-                String nameKana = rs2.getString(3);
-                String nameRomaji = rs2.getString(4);
-                int typeId = rs2.getInt(5);
-                String typeName  = rs2.getString(6);
-                int height = rs.getInt(7);
-                int age = rs.getInt(8);
-                int weight = rs.getInt(9);
-                Date birthday = rs.getDate(10);
-                int seizaId = rs.getInt(11);
-                String seizaName = rs.getString(12);
-                int homeId = rs.getInt(13);
-                String country = rs.getString(14);
-                String province = rs.getString(15);
-                String hobby = rs.getString(16);
-                String cv = rs.getString(17);
-                String note = rs.getString(18);
+            String nameKanji = rs2.getString(2);
+            String nameKana = rs2.getString(3);
+            String nameRomaji = rs2.getString(4);
+            int typeId = rs2.getInt(5);
+            String typeName  = rs2.getString(6);
+            int height = rs2.getInt(7);
+            int age = rs2.getInt(8);
+            int weight = rs2.getInt(9);
+            Date birthday = rs2.getDate(10);
+            int seizaId = rs2.getInt(11);
+            String seizaName = rs2.getString(12);
+            int homeId = rs2.getInt(13);
+            String country = rs2.getString(14);
+            String province = rs2.getString(15);
+            String hobby = rs2.getString(16);
+            String cv = rs2.getString(17);
+            String note = rs2.getString(18);
                 
-                Type type = new Type(typeId, typeName);
-                Seiza seiza = new Seiza(seizaId, seizaName);
-                Hometown hometown = new Hometown(homeId, country, province);
+            type = new Type(typeId, typeName);
+            seiza = new Seiza(seizaId, seizaName);
+            hometown = new Hometown(homeId, country, province);
                 
-                CharaMaster cm = new CharaMaster(charaId, nameKanji, 
+            cm = new CharaMaster(charaId, nameKanji, 
                      nameKana, nameRomaji, type, height, age, weight, birthday,
                      seiza, hometown, hobby, cv, note);
-            }
+
         } catch (SQLException e)
         {
             e.printStackTrace();
@@ -121,5 +128,6 @@ public class CharaMasterDAO extends BaseDAO{
         
         this.close();
         return cm;
+        
     }
 }
