@@ -14,6 +14,7 @@
 <html>
     <head>
         <title>CGSS TAKE MY MONEY</title>
+        <link rel="stylesheet" href="css/style.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script type="text/javascript">
