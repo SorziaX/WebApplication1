@@ -8,6 +8,14 @@ and open the template in the editor.
     Author     : shenhanfei
 */
 
+input{
+    height:27px;
+    font-size:15px;
+    border:1px solid #d9d9d9;
+    padding:0 6px;
+    width:200px;
+}
+
 table{
     border: solid 2px black;
     border-collapse: collapse;

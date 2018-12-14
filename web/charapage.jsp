@@ -18,10 +18,6 @@
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
-        <div class="page">   <!--大框架开始-->
-        <a href="charalist.jsp">返回一览</a>
-        <a href="charaedit.jsp">修改角色信息</a>
-        
         <%  
             int charaId = Integer.parseInt(request.getParameter("id"));  
             CharaMasterDAO dao = new CharaMasterDAO();
@@ -30,6 +26,10 @@
             CardMasterDAO dao2 = new CardMasterDAO();
             List<CardMaster> list = dao2.readCharaCard(charaId);
         %>
+        <div class="page">   <!--大框架开始-->
+        <a href="charalist.jsp">返回一览</a>
+        <a href="charaedit.jsp?id=<%=charaId%>">修改角色信息</a>
+        
         <br><br>
         
             <div class="box">   <!--左栏开始-->
