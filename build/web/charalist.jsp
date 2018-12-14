@@ -14,6 +14,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>CGSS TAKE MY MONEY</title>
+        <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
             <a href="index.html">返回</a>
