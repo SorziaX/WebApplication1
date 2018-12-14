@@ -91,10 +91,13 @@ public class CharaMasterDAO extends BaseDAO{
             + " LEFT JOIN 09_hometown t9 ON t3.hometown_id = t9.id"
             + " WHERE t3.id =" + charaId; 
         
+        System.out.println(sql);
         
         ResultSet rs2 = this.execute(sql);
                 
         try{
+            rs2.next();
+            int charaId2 = rs2.getInt(1);
             String nameKanji = rs2.getString(2);
             String nameKana = rs2.getString(3);
             String nameRomaji = rs2.getString(4);
@@ -117,7 +120,7 @@ public class CharaMasterDAO extends BaseDAO{
             seiza = new Seiza(seizaId, seizaName);
             hometown = new Hometown(homeId, country, province);
                 
-            cm = new CharaMaster(charaId, nameKanji, 
+            cm = new CharaMaster(charaId2, nameKanji, 
                      nameKana, nameRomaji, type, height, age, weight, birthday,
                      seiza, hometown, hobby, cv, note);
 
