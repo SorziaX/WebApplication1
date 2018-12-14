@@ -32,7 +32,7 @@
                     {%>
                     <tr>
                         <td><%=cm.getId() %></td>
-                        <td><%=cm.getNameKanji() %></td>
+                        <td><a href="charapage.jsp?id=<%=cm.getId() %>"><%=cm.getNameKanji() %></a></td>
                         <td><%=cm.type.getName() %></td>
                     </tr>
                     <%}
