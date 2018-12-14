@@ -15,8 +15,10 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>CGSS TAKE MY MONEY</title>
+        <link rel="stylesheet" href="css/newcss.css">
     </head>
     <body>
+        <div class="page">   <!--大框架开始-->
         <a href="charalist.jsp">返回一览</a>
         <a href="charaedit.jsp">修改角色信息</a>
         
@@ -30,41 +32,53 @@
         %>
         <br><br>
         
-        姓名（汉字）：<%=cm.getNameKanji() %><br>
-        姓名（假名）：<%=cm.getNameKana()%><br>
-        姓名（罗马音）：<%=cm.getNameRomaji()%><br>
-        属性：<%=cm.type.getName()%><br>
-        身高：<%=cm.getHeight()%><br>
-        年龄：<%=cm.getAge()%><br>
-        体重：<%=cm.getWeight()%><br>
-        生日：<%
-            Date birthday = cm.getBirthday();
-            SimpleDateFormat sdf = new SimpleDateFormat("MM月dd日");
-            String NewDate = sdf.format(birthday);
-            out.print(NewDate);
-            %><br>
-        星座：<%=cm.seiza.getName()%><br>
-        出身地：<%=cm.hometown.getCountry() + cm.hometown.getProvince()%><br>
-        兴趣：<%=cm.getHobby()%><br>
-        CV：<%=cm.getCv()%><br>
-        备注：<%=cm.getNote()%><br>
-        <br>
-        持有卡片
-        <br>
-        <table border ="1">
+            <div class="box">   <!--左栏开始-->
+                角色信息
+                <ul>
+                    <li>姓名（汉字）：<%=cm.getNameKanji() %></li>
+                    <li>姓名（假名）：<%=cm.getNameKana()%></li>
+                    <li>姓名（罗马音）：<%=cm.getNameRomaji()%></li>
+                    <li>属性：<%=cm.type.getName()%></li>
+                    <li>身高：<%=cm.getHeight()%></li>
+                    <li>年龄：<%=cm.getAge()%></li>
+                    <li>体重：<%=cm.getWeight()%></li>
+                    <li>生日：
+                        <%
+                        Date birthday = cm.getBirthday();
+                        SimpleDateFormat sdf = new SimpleDateFormat("MM月dd日");
+                        String NewDate = sdf.format(birthday);
+                        out.print(NewDate);
+                        %>
+                    </li>
+                <li>星座：<%=cm.seiza.getName()%></li>
+                <li>出身地：<%=cm.hometown.getCountry() + cm.hometown.getProvince()%></li>
+                <li>兴趣：<%=cm.getHobby()%></li>
+                <li>CV：<%=cm.getCv()%></li>
+                <li>备注：<%=cm.getNote()%></li>
+                </ul>
+            </div>  <!--左栏结束-->
+            
+            <div class="box">   <!--右栏开始-->
+                持有卡片
+                <br>
+                <table>
                 <tr>
-                    <td>卡片名</td>
-                    <td>稀有度</td>
+                    <th>卡片名</th>
+                    <th>稀有度</th>
                 </tr>
-                <%
+                    <%
                     for(CardMaster cdm:list)
-                    {%>
-                    <tr>
-                        <td><%=cdm.getCardName() %></td>
-                        <td><%=cdm.rarity.getName() %></td>
-                    </tr>
-                    <%}
-                %>
-                    
+                        {%>
+                        <tr>
+                            <td><%=cdm.getCardName() %></td>
+                            <td><%=cdm.rarity.getName() %></td>
+                        </tr>
+                        <%}
+                    %>
+                </table>
+                
+            </div>   <!--右栏结束-->
+                
+        </div>  <!--大框架结束-->
     </body>
 </html>
