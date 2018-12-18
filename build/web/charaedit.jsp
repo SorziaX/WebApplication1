@@ -5,9 +5,16 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ page language="java" %> 
+<%@ page language="java" %>  
 <%@ page import="java.lang.Iterable" %> 
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.Map" %>
 <%@ page import="cgsslog.CharaMasterDAO, cgsslog.CharaMaster"%>
+<%@ page import="cgsslog.TypeDAO, cgsslog.Type"%>
+<%@ page import="cgsslog.SeizaDAO, cgsslog.Seiza"%>
+<%@ page import="cgsslog.HometownDAO, cgsslog.Hometown"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -20,6 +27,16 @@
             int charaId = Integer.parseInt(request.getParameter("id"));  
             CharaMasterDAO dao = new CharaMasterDAO();
             CharaMaster cm = dao.selectChara(charaId);
+            
+            TypeDAO dao7 = new TypeDAO();
+            List<Type> list7 = dao7.readType();
+            
+            SeizaDAO dao8 = new SeizaDAO();
+            List<Seiza> list8 = dao8.readSeiza();
+            
+            HometownDAO dao9 = new HometownDAO();
+            List<Hometown> list9 = dao9.readHome();
+            
             %>
         
             <form method="post" action="charaedit.jsp" accept-charset="UTF-8">
@@ -35,10 +52,17 @@
             <input type="text" name="name_Romaji" value="<%=cm.getNameRomaji()%>">
             <br>
             属性
-            <select name="type">
-                <option value="1" >CUTE</option>
-                <option value="2" <%if(cm.type.getId()==2){{%>selected<%}}%>>COOL</option>
-                <option value="3" <%if(cm.type.getId()==3){{%>selected<%}}%>>PASSION</option>
+            <select name="type_id">
+                <% 
+                for(Type tp : list7){
+                    System.out.println(tp.getId());
+                    {%>
+                    <option value="<%=tp.getId()%>" <%if(cm.type.getId()==tp.getId()){{%>selected<%}}%>>
+                            <%=tp.getName()%>
+                        </option>
+                    <%}
+                }
+                %>
             </select>
             <br>
             身高
@@ -51,13 +75,49 @@
             <input type="text" name="weight" value="<%=cm.getWeight()%>">
             <br>
             生日
-            <br>
-            星座
-            <select name="seiza">
+            <select name="birth_month">
+                
+            </select>
+            <select name="birth_day">
                 
             </select>
             <br>
+            星座
+            <select name="seiza_id">
+            <% 
+                for(Seiza sz : list8){
+                    System.out.println(sz.getId());
+            {%>
+                    <option value="<%=sz.getId()%>" <%if(cm.seiza.getId()==sz.getId()){{%>selected<%}}%>>
+                            <%=sz.getName()%>
+                        </option>
+            <%}
+                }
+            %>
+            </select>
+            <br>
             出身地
+            <%
+                List<String> countryList = new ArrayList<String>();
+                
+                for(Hometown home : list9){
+                    
+                }
+            %>
+            <select name="country">
+            <%
+                for(String ct : countryList){
+            {%>
+                    <option><%=ct%>></option>
+            <%}    
+                }
+            %>
+            </select>
+            <select name="province">
+                
+
+                    
+            </select>
             <br>
             兴趣
             <input type="text" name="hobby" value="<%=cm.getHobby()%>">
@@ -69,15 +129,16 @@
             <input type="text" name="note" value="<%=cm.getNote()%>">
             <br>
             <button type="submit" value="submit"">保存修改</button>
-
+         
         <%
         /*
         request.setCharacterEncoding("UTF-8");
-        String cardName=request.getParameter("card_name");
+        String nameKanji=request.getParameter("name_Kanji");
         
-        if( cardName != null){
-            int charaId=Integer.parseInt(request.getParameter("chara_id"));
-            int rarityId=Integer.parseInt(request.getParameter("rarity_id")); 
+        if( nameKanji != null){
+            String nameKana=request.getParameter("name_Kana");
+            String nameRomaji=request.getParameter("name_Romaji");
+            int typeId=Integer.parseInt(request.getParameter("type_id")); 
             
             String a=null;
             Date birthday=null;
