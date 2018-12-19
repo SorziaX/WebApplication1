@@ -22,7 +22,7 @@ public class HometownDAO extends BaseDAO{
         List<Hometown> list = new ArrayList<Hometown>();
         String sql = null;
         
-        sql = "SELECT country"
+        sql = "SELECT *"
             + " FROM 09_hometown t9";
         
         ResultSet rs = this.execute(sql);
@@ -44,7 +44,7 @@ public class HometownDAO extends BaseDAO{
         
         this.close();
         
-        return home;
+        return list;
     }
     
 }

@@ -39,9 +39,9 @@
                     <li>姓名（假名）：<%=cm.getNameKana()%></li>
                     <li>姓名（罗马音）：<%=cm.getNameRomaji()%></li>
                     <li>属性：<%=cm.type.getName()%></li>
-                    <li>身高：<%=cm.getHeight()%></li>
+                    <li>身高：<%=cm.getHeight()%>cm</li>
                     <li>年龄：<%=cm.getAge()%></li>
-                    <li>体重：<%=cm.getWeight()%></li>
+                    <li>体重：<%=cm.getWeight()%>kg</li>
                     <li>生日：
                         <%
                         Date birthday = cm.getBirthday();

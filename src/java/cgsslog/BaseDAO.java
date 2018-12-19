@@ -38,14 +38,12 @@ public class BaseDAO {
     
     public void connectDB() {
         try{
-            System.out.println("DEBUG:connectDB Start");
+            System.out.println("connectDB Start");
             Properties prop = new Properties();
             InputStream in = null;
             ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
             in = classLoader.getResourceAsStream("mysql.properties");
-            System.out.println("DEBUG:4");
             prop.load(in);
-            System.out.println("DEBUG:5");
             
             //数据库信息
             String mysqlServer=prop.getProperty("mysqlServer");

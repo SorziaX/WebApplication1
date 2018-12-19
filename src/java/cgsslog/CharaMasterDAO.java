@@ -133,4 +133,37 @@ public class CharaMasterDAO extends BaseDAO{
         return cm;
         
     }
+    
+    public void editChara(CharaMaster cm){
+        
+        String sql = null;
+        System.out.println("Starting edit Character");
+        
+        sql = "UPDATE 03_charamaster t3"
+            + " SET"
+            + " t3.name_kanji='"+ cm.getNameKanji()+"',"
+            + " t3.name_kana='"+cm.getNameKana()+"',"
+            + " t3.name_romaji='"+cm.getNameRomaji()+"',"
+            + " t3.type_id="+cm.type.getId()+","
+            + " t3.height="+cm.getHeight()+","
+            + " t3.age="+cm.getAge()+","
+            + " t3.weight="+cm.getWeight()+","
+            /*
+            + " t3.birthday="+cm.getBirthday()+","
+            */
+            + " t3.seiza_id="+cm.seiza.getId()+","
+            + " t3.home_id="+cm.hometown.getId()+","
+            + " t3.hobby='"+cm.getHobby()+"',"
+            + " t3.cv='"+cm.getCv()+"',"
+            + " t3.note='"+cm.getNote()+"'"
+            + " WHERE t3.id ="+cm.getId();
+        
+        System.out.println(sql);
+        
+        executeUpdate(sql);
+        System.out.println("Data is successfully updated!");
+        
+        this.close();
+        
+    }
 }

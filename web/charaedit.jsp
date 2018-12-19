@@ -7,9 +7,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page language="java" %>  
 <%@ page import="java.lang.Iterable" %> 
-<%@ page import="java.util.List" %>
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="java.util.Map" %>
+<%@ page import="java.util.*" %>
+<%@ page import="java.text.SimpleDateFormat" %> 
 <%@ page import="cgsslog.CharaMasterDAO, cgsslog.CharaMaster"%>
 <%@ page import="cgsslog.TypeDAO, cgsslog.Type"%>
 <%@ page import="cgsslog.SeizaDAO, cgsslog.Seiza"%>
@@ -55,7 +54,6 @@
             <select name="type_id">
                 <% 
                 for(Type tp : list7){
-                    System.out.println(tp.getId());
                     {%>
                     <option value="<%=tp.getId()%>" <%if(cm.type.getId()==tp.getId()){{%>selected<%}}%>>
                             <%=tp.getName()%>
@@ -66,27 +64,29 @@
             </select>
             <br>
             身高
-            <input type="text" name="height" value="<%=cm.getHeight()%>">
+            <input type="text" name="height" value="<%=cm.getHeight()%>">cm
             <br>
             年龄
             <input type="text" name="age" value="<%=cm.getAge()%>">
             <br>
             体重
-            <input type="text" name="weight" value="<%=cm.getWeight()%>">
+            <input type="text" name="weight" value="<%=cm.getWeight()%>">kg
             <br>
             生日
-            <select name="birth_month">
-                
-            </select>
-            <select name="birth_day">
-                
-            </select>
+            <%
+            System.out.println(cm.getBirthday());
+            %>
+
+            <input type="text" name="birthday" value="<%=cm.getBirthday()%>">
+            </input>
             <br>
             星座
             <select name="seiza_id">
+            <%
+            System.out.println("get Seiza list");
+            %>
             <% 
                 for(Seiza sz : list8){
-                    System.out.println(sz.getId());
             {%>
                     <option value="<%=sz.getId()%>" <%if(cm.seiza.getId()==sz.getId()){{%>selected<%}}%>>
                             <%=sz.getName()%>
@@ -94,29 +94,20 @@
             <%}
                 }
             %>
-            </select>
+            </select>s
             <br>
             出身地
+            <select name="home_id">
             <%
-                List<String> countryList = new ArrayList<String>();
-                
+            System.out.println("get hometown list");
                 for(Hometown home : list9){
-                    
-                }
-            %>
-            <select name="country">
-            <%
-                for(String ct : countryList){
             {%>
-                    <option><%=ct%>></option>
-            <%}    
+            <option value="<%=home.getId()%>>" <%if(cm.hometown.getId()==home.getId()){{%>selected<%}}%>>
+                <%=home.getCountry()%> <%=home.getProvince()%>
+            </option>
+            <%}
                 }
             %>
-            </select>
-            <select name="province">
-                
-
-                    
             </select>
             <br>
             兴趣
@@ -131,42 +122,52 @@
             <button type="submit" value="submit"">保存修改</button>
          
         <%
-        /*
-        request.setCharacterEncoding("UTF-8");
-        String nameKanji=request.getParameter("name_Kanji");
-        
-        if( nameKanji != null){
-            String nameKana=request.getParameter("name_Kana");
-            String nameRomaji=request.getParameter("name_Romaji");
-            int typeId=Integer.parseInt(request.getParameter("type_id")); 
+            request.setCharacterEncoding("UTF-8");
             
-            String a=null;
-            Date birthday=null;
+                System.out.println("Start updating");
+                
+                String nameKanji=request.getParameter("name_Kanji");
+                String nameKana=request.getParameter("name_Kana");
+                String nameRomaji=request.getParameter("name_Romaji");
+                int typeId=Integer.parseInt(request.getParameter("type_id")); 
+                int height=Integer.parseInt(request.getParameter("height"));
+                int age=Integer.parseInt(request.getParameter("age"));
+                int weight=Integer.parseInt(request.getParameter("weight"));
+                /*
+                SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd");
+                Date birth= sdf2.parse(request.getParameter("birthday"));
+                System.out.println("Editing: "+birth);
+                java.sql.Date sBirthday = new java.sql.Date(birth.getTime());
+                */
+                Date uDate = new Date();
+                java.sql.Date sBirthday = new java.sql.Date(uDate.getTime());
+                
+                int seizaId=Integer.parseInt(request.getParameter("seiza_id"));
+                int homeId=Integer.parseInt(request.getParameter("home_id"));
+                String hobby=request.getParameter("hobby");
+                String cv=request.getParameter("cv");
+                String note=request.getParameter("note");
 
-            System.out.println(cardName);
-            System.out.println(charaId);
-            System.out.println(rarityId);
+                String a=null;
 
-            try
-            {
-            Type type = new Type(0,a);
-            Seiza seiza = new Seiza(0,a);
-            Hometown home = new Hometown(0,a,a);
-            Rarity rarity = new Rarity(rarityId,a);
-            CardGetMethod get = new CardGetMethod(0,a);
-            Skill skill = new Skill(0,a);
-            CharaMaster chara = new CharaMaster(charaId, a, a, a, type, 0, 0, 0, birthday, seiza, home, a, a, a);
-            CardMaster card = new CardMaster(0, cardName, chara, rarity, get, skill);
-            CardMasterDAO dao = new CardMasterDAO();
+                try
+                {
+                Type type = new Type(typeId,a);
+                Seiza seiza = new Seiza(seizaId,a);
+                Hometown home = new Hometown(homeId,a,a);
+                CharaMaster chara = new CharaMaster(charaId, nameKanji, nameKana,
+                                        nameRomaji, type, height, age, weight,
+                                        sBirthday, seiza, home, hobby, cv, note);
+                CharaMasterDAO cmDao = new CharaMasterDAO();
 
-            dao.addCard(card);
-            }
-            catch(Exception e)
-            {
-            e.printStackTrace();
-            }
-        }
-        */
+                cmDao.editChara(chara);
+
+                }
+                catch(Exception e)
+                {
+                e.printStackTrace();
+                }
+        
         %>            
             
     </body>
