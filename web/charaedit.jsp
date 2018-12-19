@@ -123,30 +123,121 @@
          
         <%
             request.setCharacterEncoding("UTF-8");
-            
+ 
                 System.out.println("Start updating");
                 
-                String nameKanji=request.getParameter("name_Kanji");
-                String nameKana=request.getParameter("name_Kana");
-                String nameRomaji=request.getParameter("name_Romaji");
-                int typeId=Integer.parseInt(request.getParameter("type_id")); 
-                int height=Integer.parseInt(request.getParameter("height"));
-                int age=Integer.parseInt(request.getParameter("age"));
-                int weight=Integer.parseInt(request.getParameter("weight"));
+                String nameKanji=null;
+                if(!(request.getParameter("name_Kanji")== null)
+                    && !(request.getParameter("name_Kanji")== cm.getNameKanji())){
+                    nameKanji=request.getParameter("name_Kanji");
+                }else{
+                    nameKanji=cm.getNameKanji();
+                }
+                
+                String nameKana=null;
+                if(!(request.getParameter("name_Kana")==null)
+                    &&!(request.getParameter("name_Kana")== cm.getNameKana())){
+                    nameKana=request.getParameter("name_Kana");
+                }else{
+                    nameKana=cm.getNameKana();
+                }
+                
+                String nameRomaji=null;
+                if(!(request.getParameter("name_Romaji")==null)
+                    &&!(request.getParameter("name_Romaji")== cm.getNameRomaji())){
+                    nameRomaji=request.getParameter("name_Romaji");
+                }else{
+                    nameRomaji=cm.getNameRomaji();
+                }
+                
+                int typeId = 0;
+                if(!(request.getParameter("type_id") == null)
+                    &&!(Integer.valueOf(request.getParameter("type_id")).intValue()==cm.type.getId())){
+                        typeId = Integer.parseInt(request.getParameter("typid"));
+                }else{
+                        typeId = cm.type.getId();
+                }
+                
+                int height = 0;
+                if(!(request.getParameter("height") == null)
+                    &&!(Integer.valueOf(request.getParameter("height")).intValue()==cm.getHeight())){
+                        height = Integer.valueOf(request.getParameter("height")).intValue();
+                }else{
+                        height = cm.getHeight();
+                }
+                System.out.println("input height"+ request.getParameter("height"));
+                System.out.println("new height = " +height);
+                System.out.println("height in DB = " + cm.getHeight());
+                
+                int age = 0;
+                if(!(request.getParameter("age") == null)
+                    &&!(Integer.valueOf(request.getParameter("age")).intValue()==cm.getAge())){
+                        age = Integer.parseInt(request.getParameter("age"));
+                }else{
+                        age = cm.getAge();
+                }
+                
+                int weight = 0;
+                if(!(request.getParameter("weight") == null)){
+                    int left4 = Integer.parseInt(request.getParameter("weight"));
+                    if(left4 != cm.getWeight()){
+                        weight = left4;
+                    }else{
+                        weight = cm.getWeight();
+                    }
+                }
+                
                 /*
                 SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd");
                 Date birth= sdf2.parse(request.getParameter("birthday"));
                 System.out.println("Editing: "+birth);
                 java.sql.Date sBirthday = new java.sql.Date(birth.getTime());
                 */
+
                 Date uDate = new Date();
                 java.sql.Date sBirthday = new java.sql.Date(uDate.getTime());
                 
-                int seizaId=Integer.parseInt(request.getParameter("seiza_id"));
-                int homeId=Integer.parseInt(request.getParameter("home_id"));
-                String hobby=request.getParameter("hobby");
-                String cv=request.getParameter("cv");
-                String note=request.getParameter("note");
+                int seizaId = 0;
+                if(!(request.getParameter("seiza_id") == null)){
+                    int left5 = Integer.parseInt(request.getParameter("seiza_id"));
+                    if(left5 != cm.seiza.getId()){
+                        seizaId = left5;
+                    }else{
+                        seizaId = cm.seiza.getId();
+                    }
+                }
+                
+                int homeId = 0;
+                if(!(request.getParameter("home_id") == null)){
+                    int left6 = Integer.parseInt(request.getParameter("seiza_id"));
+                    if(left6 != cm.hometown.getId()){
+                        homeId = left6;
+                    }else{
+                        homeId = cm.hometown.getId();
+                    }
+                    
+                }
+                
+                String hobby=null;
+                if(request.getParameter("hobby")!= cm.getHobby()){
+                    hobby = request.getParameter("hobby");
+                }else{
+                    hobby = cm.getHobby();
+                }
+                
+                String cv = null;
+                if(request.getParameter("cv")!=cm.getCv()){
+                    cv=request.getParameter("cv");
+                }else{
+                    cv = cm.getCv();
+                }
+                
+                String note = null;
+                if(request.getParameter("note")!=cm.getNote()){
+                    note=request.getParameter("note");
+                }else{
+                    note = cm.getNote();
+                }
 
                 String a=null;
 
@@ -167,6 +258,7 @@
                 {
                 e.printStackTrace();
                 }
+            
         
         %>            
             
