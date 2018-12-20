@@ -82,9 +82,10 @@
                 <td><%=cm.getHeight()%>cm</td>
                 <td><input type="text" name="height">cm</td>
             </tr>
-                年龄
+            <tr>
+                <td>年龄
                 <input type="text" name="age" value="<%=cm.getAge()%>">
-                <br>
+            </tr>
                 体重
                 <input type="text" name="weight" value="<%=cm.getWeight()%>">kg
                 <br>
@@ -134,7 +135,7 @@
             </table>
             <br>
             <button type="submit" value="submit">保存修改</button>
-         
+        </form> 
         <%
             request.setCharacterEncoding("UTF-8");
  
