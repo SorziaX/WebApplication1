@@ -41,83 +41,97 @@
             <form method="post" action="charaedit.jsp" accept-charset="UTF-8">
             <a href="charapage.jsp?id=<%=charaId%>">返回角色信息</a>
             <br>
-            姓名（汉字）
-            <input type="text" name="name_Kanji" value="<%=cm.getNameKanji()%>">
-            <br>
-            姓名（假名）
-            <input type="text" name="name_Kana" value="<%=cm.getNameKana()%>">
-            <br>
-            姓名（罗马音）
-            <input type="text" name="name_Romaji" value="<%=cm.getNameRomaji()%>">
-            <br>
-            属性
-            <select name="type_id">
-                <% 
-                for(Type tp : list7){
-                    {%>
-                    <option value="<%=tp.getId()%>" <%if(cm.type.getId()==tp.getId()){{%>selected<%}}%>>
-                            <%=tp.getName()%>
-                        </option>
-                    <%}
-                }
+            <table>
+            <tr>
+                <th></th>
+                <th>修改前</th>
+                <th>修改后</th>
+            </tr>
+            <tr>
+                <td>姓名（汉字）</td>
+                <td><%=cm.getNameKanji()%></td>
+                <td><input type="text" name="name_Kanji" ></td>
+            </tr>
+            <tr>
+                <td>姓名（假名）</td>
+                <td><%=cm.getNameKana()%></td>
+                <td><input type="text" name="name_Kana" ></td>
+            </tr>
+            <tr>
+                <td>姓名（罗马音）</td>
+                <td><%=cm.getNameRomaji()%></td>
+                <td><input type="text" name="name_Romaji"></td>
+            </tr>
+            <tr>
+                <td>属性</td>
+                <td><%=cm.type.getName()%>
+                <td><select name="type_id">
+                    <% 
+                    for(Type tp : list7){
+                        {%>
+                        <option value="<%=tp.getId()%>" <%if(cm.type.getId()==tp.getId()){{%>selected<%}}%>>
+                                <%=tp.getName()%>
+                            </option>
+                        <%}
+                    }
+                    %>
+                </select></td>
+            </tr>
+            <tr>
+                <td>身高</td>
+                <td><%=cm.getHeight()%>cm</td>
+                <td><input type="text" name="height">cm</td>
+            </tr>
+                年龄
+                <input type="text" name="age" value="<%=cm.getAge()%>">
+                <br>
+                体重
+                <input type="text" name="weight" value="<%=cm.getWeight()%>">kg
+                <br>
+                生日
+                <input type="text" name="birthday" value="<%=cm.getBirthday()%>">
+                </input>
+                <br>
+                星座
+                <select name="seiza_id">
+                <%
+                System.out.println("get Seiza list");
                 %>
-            </select>
-            <br>
-            身高
-            <input type="text" name="height" value="<%=cm.getHeight()%>">cm
-            <br>
-            年龄
-            <input type="text" name="age" value="<%=cm.getAge()%>">
-            <br>
-            体重
-            <input type="text" name="weight" value="<%=cm.getWeight()%>">kg
-            <br>
-            生日
-            <%
-            System.out.println(cm.getBirthday());
-            %>
-
-            <input type="text" name="birthday" value="<%=cm.getBirthday()%>">
-            </input>
-            <br>
-            星座
-            <select name="seiza_id">
-            <%
-            System.out.println("get Seiza list");
-            %>
-            <% 
-                for(Seiza sz : list8){
-            {%>
-                    <option value="<%=sz.getId()%>" <%if(cm.seiza.getId()==sz.getId()){{%>selected<%}}%>>
-                            <%=sz.getName()%>
-                        </option>
-            <%}
-                }
-            %>
-            </select>
-            <br>
-            出身地
-            <select name="home_id">
-            <%
-            System.out.println("get hometown list");
-                for(Hometown home : list9){
-            {%>
-            <option value="<%=home.getId()%>>" <%if(cm.hometown.getId()==home.getId()){{%>selected<%}}%>>
-                <%=home.getCountry()%> <%=home.getProvince()%>
-            </option>
-            <%}
-                }
-            %>
-            </select>
-            <br>
-            兴趣
-            <input type="text" name="hobby" value="<%=cm.getHobby()%>">
-            <br>
-            CV
-            <input type="text" name="cv" value="<%=cm.getCv()%>">
-            <br>
-            备注
-            <input type="text" name="note" value="<%=cm.getNote()%>">
+                <% 
+                    for(Seiza sz : list8){
+                {%>
+                        <option value="<%=sz.getId()%>" <%if(cm.seiza.getId()==sz.getId()){{%>selected<%}}%>>
+                                <%=sz.getName()%>
+                            </option>
+                <%}
+                    }
+                %>
+                </select>
+                <br>
+                出身地
+                <select name="home_id">
+                <%
+                System.out.println("get hometown list");
+                    for(Hometown home : list9){
+                {%>
+                <option value="<%=home.getId()%>>" <%if(cm.hometown.getId()==home.getId()){{%>selected<%}}%>>
+                    <%=home.getCountry()%> <%=home.getProvince()%>
+                </option>
+                <%}
+                    }
+                %>
+                </select>
+                <br>
+                兴趣
+                <input type="text" name="hobby" value="<%=cm.getHobby()%>">
+                <br>
+                CV
+                <input type="text" name="cv" value="<%=cm.getCv()%>">
+                <br>
+                备注
+                <input type="text" name="note" value="<%=cm.getNote()%>">
+            </tr>
+            </table>
             <br>
             <button type="submit" value="submit">保存修改</button>
          
@@ -161,6 +175,8 @@
                 }
                 
                 int height = 0;
+                System.out.println("input height = "+ request.getParameter("height"));
+                System.out.println("height in DB = " + cm.type.getId());
                 if(!(request.getParameter("height") == null)
                     &&!(Integer.valueOf(request.getParameter("height")).intValue()==cm.getHeight())){
                         height = Integer.valueOf(request.getParameter("height")).intValue();
