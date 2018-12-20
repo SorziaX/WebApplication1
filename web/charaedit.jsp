@@ -38,7 +38,7 @@
             
             %>
         
-            <form method="post" action="charaedit.jsp" accept-charset="UTF-8">
+            <form method="post" action="charaedit.jsp?id=<%=cm.getId()%>" accept-charset="UTF-8">
             <a href="charapage.jsp?id=<%=charaId%>">返回角色信息</a>
             <br>
             <table>
@@ -50,7 +50,7 @@
             <tr>
                 <td>姓名（汉字）</td>
                 <td><%=cm.getNameKanji()%></td>
-                <td><input type="text" name="name_Kanji" ></td>
+                <td><input type="text" name="name_Kanji"></td>
             </tr>
             <tr>
                 <td>姓名（假名）</td>
@@ -83,71 +83,81 @@
                 <td><input type="text" name="height">cm</td>
             </tr>
             <tr>
-                <td>年龄
-                <input type="text" name="age" value="<%=cm.getAge()%>">
+                <td>年龄</td>
+                <td><%=cm.getAge()%></td>
+                <td><input type="text" name="age"></td>
             </tr>
-                体重
-                <input type="text" name="weight" value="<%=cm.getWeight()%>">kg
-                <br>
-                生日
-                <input type="text" name="birthday" value="<%=cm.getBirthday()%>">
-                </input>
-                <br>
-                星座
-                <select name="seiza_id">
-                <%
-                System.out.println("get Seiza list");
-                %>
+            <tr>
+                <td>体重</td>
+                <td><%=cm.getWeight()%>kg</td>
+                <td><input type="text" name="weight">kg</td>
+            </tr>
+            <tr>
+                <td>生日</td>
+                <td><%=cm.getBirthday()%></td>
+                <td><input type="text" name="birthday"></td>
+            </tr>
+            <tr>
+                <td>星座</td>
+                <td><%=cm.seiza.getName()%></td>
+                <td><select name="seiza_id">
                 <% 
                     for(Seiza sz : list8){
                 {%>
-                        <option value="<%=sz.getId()%>" <%if(cm.seiza.getId()==sz.getId()){{%>selected<%}}%>>
-                                <%=sz.getName()%>
-                            </option>
+                        <option value="<%=sz.getId()%>"><%=sz.getName()%></option>
                 <%}
                     }
                 %>
-                </select>
-                <br>
-                出身地
-                <select name="home_id">
+                </select></td>
+            </tr>
+            <tr>
+                <td>出身地</td>
+                <td><%=cm.hometown.getCountry()%> <%=cm.hometown.getProvince()%></td>
+                <td><select name="home_id">
                 <%
-                System.out.println("get hometown list");
                     for(Hometown home : list9){
                 {%>
-                <option value="<%=home.getId()%>>" <%if(cm.hometown.getId()==home.getId()){{%>selected<%}}%>>
-                    <%=home.getCountry()%> <%=home.getProvince()%>
-                </option>
+                <option value="<%=home.getId()%>>"><%=home.getCountry()%> <%=home.getProvince()%></option>
                 <%}
                     }
                 %>
-                </select>
-                <br>
-                兴趣
-                <input type="text" name="hobby" value="<%=cm.getHobby()%>">
-                <br>
-                CV
-                <input type="text" name="cv" value="<%=cm.getCv()%>">
-                <br>
-                备注
-                <input type="text" name="note" value="<%=cm.getNote()%>">
+                </select></td>
+            </tr>
+            <tr>
+                <td>兴趣</td>
+                <td><%=cm.getHobby()%></td>
+                <td><input type="text" name="hobby"></td>
+            </tr>
+            <tr>
+                <td>CV</td>
+                <td><%=cm.getCv()%></td>
+                <td><input type="text" name="cv"></td>
+            </tr>
+            <tr>
+                <td>备注</td>
+                <td><%=cm.getNote()%></td>
+                <td><input type="text" name="note"></td>
+                
             </tr>
             </table>
-            <br>
+            <input type="hidden" name="update" value="updateFLag">
             <button type="submit" value="submit">保存修改</button>
         </form> 
         <%
             request.setCharacterEncoding("UTF-8");
- 
+            if(request.getParameter("update")!=null){
                 System.out.println("Start updating");
                 
+                System.out.println("name_kanji : " + request.getParameter("name_Kanji"));
+                System.out.println("name_Kanji in DB : "+cm.getNameKanji());
                 String nameKanji=null;
                 if(!(request.getParameter("name_Kanji")== null)
-                    && !(request.getParameter("name_Kanji")== cm.getNameKanji())){
+                    && !(request.getParameter("name_kanji")=="")){
                     nameKanji=request.getParameter("name_Kanji");
                 }else{
                     nameKanji=cm.getNameKanji();
                 }
+                System.out.println("name_kanji for update: " + nameKanji);
                 
                 String nameKana=null;
                 if(!(request.getParameter("name_Kana")==null)
@@ -278,7 +288,7 @@
                 {
                 e.printStackTrace();
                 }
-            
+            }
         
         %>            
             
