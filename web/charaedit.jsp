@@ -94,7 +94,7 @@
             <%}
                 }
             %>
-            </select>s
+            </select>
             <br>
             出身地
             <select name="home_id">
@@ -119,7 +119,7 @@
             备注
             <input type="text" name="note" value="<%=cm.getNote()%>">
             <br>
-            <button type="submit" value="submit"">保存修改</button>
+            <button type="submit" value="submit">保存修改</button>
          
         <%
             request.setCharacterEncoding("UTF-8");
@@ -151,6 +151,8 @@
                 }
                 
                 int typeId = 0;
+                System.out.println("input typeId = "+ request.getParameter("type_id"));
+                System.out.println("type_id in DB = " + cm.type.getId());
                 if(!(request.getParameter("type_id") == null)
                     &&!(Integer.valueOf(request.getParameter("type_id")).intValue()==cm.type.getId())){
                         typeId = Integer.parseInt(request.getParameter("typid"));
@@ -165,9 +167,7 @@
                 }else{
                         height = cm.getHeight();
                 }
-                System.out.println("input height"+ request.getParameter("height"));
-                System.out.println("new height = " +height);
-                System.out.println("height in DB = " + cm.getHeight());
+                
                 
                 int age = 0;
                 if(!(request.getParameter("age") == null)
@@ -219,24 +219,27 @@
                 }
                 
                 String hobby=null;
-                if(request.getParameter("hobby")!= cm.getHobby()){
-                    hobby = request.getParameter("hobby");
+                if(!(request.getParameter("hobby")==null)
+                        &&!(request.getParameter("hobby")==cm.getHobby())){
+                    hobby=request.getParameter("hobby");
                 }else{
-                    hobby = cm.getHobby();
+                    hobby=cm.getHobby();
                 }
                 
                 String cv = null;
-                if(request.getParameter("cv")!=cm.getCv()){
+                if(!(request.getParameter("cv")==null)
+                        &&!(request.getParameter("cv")==cm.getCv())){
                     cv=request.getParameter("cv");
                 }else{
-                    cv = cm.getCv();
+                    cv=cm.getCv();
                 }
                 
                 String note = null;
-                if(request.getParameter("note")!=cm.getNote()){
+                if(!(request.getParameter("note")==null)
+                        &&!(request.getParameter("note")==cm.getNote())){
                     note=request.getParameter("note");
                 }else{
-                    note = cm.getNote();
+                    note=cm.getNote();
                 }
 
                 String a=null;
