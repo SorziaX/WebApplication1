@@ -152,7 +152,7 @@ public class CharaMasterDAO extends BaseDAO{
             + " t3.birthday="+cm.getBirthday()+","
             */
             + " t3.seiza_id="+cm.seiza.getId()+","
-            + " t3.home_id="+cm.hometown.getId()+","
+            + " t3.hometown_id="+cm.hometown.getId()+","
             + " t3.hobby='"+cm.getHobby()+"',"
             + " t3.cv='"+cm.getCv()+"',"
             + " t3.note='"+cm.getNote()+"'"
