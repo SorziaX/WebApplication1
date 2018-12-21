@@ -28,6 +28,13 @@
         %>
         <div class="page">   <!--大框架开始-->
         <a href="charalist.jsp">返回一览</a>
+        <%
+            if(charaId > 1){
+                {%><a href="charapage.jsp?id=<%=charaId-1%>">上一名角色</a><%}
+            }
+        %>
+        <a href="charapage.jsp?id=<%=charaId+1%>">下一名角色</a>
+        </br>
         <a href="charaedit.jsp?id=<%=charaId%>">修改角色信息</a>
         
         <br><br>

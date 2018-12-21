@@ -100,7 +100,7 @@
                 System.out.println("input type_id : " + sTypeId);
                 System.out.println("type_id in DB : "+cm.type.getId());
                 int typeId = 0;
-                if(!(sTypeId == null) &&!(Integer.parseInt(sTypeId)==cm.type.getId()))
+                if(!(sTypeId == null) && !(sTypeId.equals("")) &&!(Integer.parseInt(sTypeId)==cm.type.getId()))
                 {
                         typeId = Integer.parseInt(sTypeId);
                 }else{
@@ -149,16 +149,19 @@
                 }
                 System.out.println("weight for update: " + weight);
                 
-                /*
-                SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd");
-                Date birth= sdf2.parse(request.getParameter("birthday"));
-                System.out.println("Editing: "+birth);
-                java.sql.Date sBirthday = new java.sql.Date(birth.getTime());
-                */
+                java.sql.Date sqlBirthday;
+                String sBirth = request.getParameter("birthday");
+                if(!(sBirth==null) && !(sBirth.equals(""))){
+                    SimpleDateFormat sdf2 = new SimpleDateFormat("MM-dd");
+                    Date birth= sdf2.parse(sBirth);
+                    System.out.println("input birthday = " + birth);
+                    System.out.println("weight in DB = " + sdf2.format(cm.getWeight()));
+                    sqlBirthday = new java.sql.Date(birth.getTime());
+                }else{
+                    sqlBirthday = cm.getBirthday();
+                }
+                System.out.println("birthday for update: " + sqlBirthday);
 
-                Date uDate = new Date();
-                java.sql.Date sBirthday = new java.sql.Date(uDate.getTime());
-                
                 
                 String sSeizaId = request.getParameter("seiza_id");
                 System.out.println("input seiza_id = " + sSeizaId);
@@ -229,12 +232,12 @@
                 Hometown home = new Hometown(homeId,a,a);
                 CharaMaster chara = new CharaMaster(charaId, nameKanji, nameKana,
                                         nameRomaji, type, height, age, weight,
-                                        sBirthday, seiza, home, hobby, cv, note);
+                                        sqlBirthday, seiza, home, hobby, cv, note);
                 CharaMasterDAO cmDao = new CharaMasterDAO();
                 
                 System.out.println("Start updating");
                 cmDao.editChara(chara);
-
+                
                 }
                 catch(Exception e)
                 {
@@ -272,6 +275,7 @@
                 <td>属性</td>
                 <td><%=cm.type.getName()%>
                 <td><select name="type_id">
+                    <option value=""></option>
                     <% 
                     for(Type tp : list7){
                         {%>
@@ -298,13 +302,18 @@
             </tr>
             <tr>
                 <td>生日</td>
-                <td><%=cm.getBirthday()%></td>
+            <%
+                SimpleDateFormat sdf = new SimpleDateFormat("MM-dd");
+                String birth= sdf.format(cm.getBirthday());
+            %>
+                <td><%=birth%></td>
                 <td><input type="text" name="birthday"></td>
             </tr>
             <tr>
                 <td>星座</td>
                 <td><%=cm.seiza.getName()%></td>
                 <td><select name="seiza_id">
+                    <option value=""></option>
                 <% 
                     for(Seiza sz : list8){
                 {%>
@@ -318,10 +327,11 @@
                 <td>出身地</td>
                 <td><%=cm.hometown.getCountry()%> <%=cm.hometown.getProvince()%></td>
                 <td><select name="home_id">
+                    <option value=""></option>
                 <%
                     for(Hometown home : list9){
                 {%>
-                <option value="<%=home.getId()%>"><%=home.getCountry()%> <%=home.getProvince()%></option>
+                        <option value="<%=home.getId()%>"><%=home.getCountry()%> <%=home.getProvince()%></option>
                 <%}
                     }
                 %>

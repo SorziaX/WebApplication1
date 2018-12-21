@@ -148,9 +148,7 @@ public class CharaMasterDAO extends BaseDAO{
             + " t3.height="+cm.getHeight()+","
             + " t3.age="+cm.getAge()+","
             + " t3.weight="+cm.getWeight()+","
-            /*
-            + " t3.birthday="+cm.getBirthday()+","
-            */
+            + " t3.birthday='"+cm.getBirthday()+"',"
             + " t3.seiza_id="+cm.seiza.getId()+","
             + " t3.hometown_id="+cm.hometown.getId()+","
             + " t3.hobby='"+cm.getHobby()+"',"
