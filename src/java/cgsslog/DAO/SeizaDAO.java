@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cgsslog;
+package cgsslog.DAO;
+
+import cgsslog.Seiza;
 import java.sql.*;
 import java.util.List;
 import java.util.ArrayList;
@@ -12,35 +14,32 @@ import java.util.ArrayList;
  *
  * @author shenhanfei
  */
-public class TypeDAO extends BaseDAO{
+public class SeizaDAO extends BaseDAO{
     
-    public List readType(){
-        List<Type> list = new ArrayList<Type>();
+    public List readSeiza() {
+        List<Seiza> list = new ArrayList<Seiza>();
         String sql = null;
         
         sql = "SELECT *"
-            + " FROM 07_type t7";
-                
+            + " FROM 08_seiza t8";
+        
         System.out.println(sql);
         
         ResultSet rs = this.execute(sql);
         
         try{
-            while(rs.next())
-            {
+            while(rs.next()) {
                 int id = rs.getInt(1);
                 String name = rs.getString(2);
-                Type type = new Type(id, name);
-                list.add(type);
+                Seiza seiza = new Seiza(id, name);
+                list.add(seiza);
             }
-        } catch (SQLException e)
-        {
+        } catch (SQLException e) {
             e.printStackTrace();
         } finally {}
         
         this.close();
         return list;
-
     }
     
 }

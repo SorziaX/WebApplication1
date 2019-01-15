@@ -18,57 +18,57 @@ public class CardMaster {
     public CardGetMethod cardGetMethod;
     public Skill skill;
 
-    public int getId(){
+    public int getId() {
         return id;
     }
     
-    public void setId(int id){
+    public void setId(int id) {
         this.id = id;
     }
     
-    public String getCardName(){
+    public String getCardName() {
         return cardName;
     }
     
-    public void setCardName(String cardName){
+    public void setCardName(String cardName) {
         this.cardName = cardName;
     }
     
-    public CharaMaster getCharaMaster(){
+    public CharaMaster getCharaMaster() {
         return charaMaster;
     }
     
-    public void setCharaMaster(CharaMaster charaMaster){
+    public void setCharaMaster(CharaMaster charaMaster) {
         this.charaMaster = charaMaster;
     }
     
-    public Rarity getRarity(){
+    public Rarity getRarity() {
         return rarity;
     }
     
-    public void setRarity(Rarity rarity){
+    public void setRarity(Rarity rarity) {
         this.rarity = rarity;
     }
     
-    public CardGetMethod getCardGetMethod(){
+    public CardGetMethod getCardGetMethod() {
         return cardGetMethod;
     }
     
-    public void setCardGetMethod(CardGetMethod cardGetMethod){
+    public void setCardGetMethod(CardGetMethod cardGetMethod) {
         this.cardGetMethod = cardGetMethod;
     }
         
-    public Skill getSkill(){
+    public Skill getSkill() {
         return skill;
     }
     
-    public void setSkill(Skill skill){
+    public void setSkill(Skill skill) {
         this.skill = skill;
     }
    
 
     public CardMaster(int id, String cardName, CharaMaster charaMaster, 
-            Rarity rarity, CardGetMethod cardGetMethod, Skill skill){
+            Rarity rarity, CardGetMethod cardGetMethod, Skill skill) {
         super();
         this.id = id;
         this.cardName = cardName;
@@ -79,4 +79,3 @@ public class CardMaster {
     }
     
 }
-

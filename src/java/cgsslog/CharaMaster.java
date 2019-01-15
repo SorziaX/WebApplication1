@@ -28,122 +28,122 @@ public class CharaMaster {
     private String cv;
     private String note;
 
-    public int getId(){
+    public int getId() {
         return id;
     }
     
-    public void setId(int id){
+    public void setId(int id) {
         this.id = id;
     }
 
-    public String getNameKanji(){
+    public String getNameKanji() {
         return nameKanji;
     }
     
-    public void setNameKanji(String nameKanji){
+    public void setNameKanji(String nameKanji) {
         this.nameKanji = nameKanji;
     }
     
-    public String getNameKana(){
+    public String getNameKana() {
         return nameKana;
     }
     
-    public void setNameKana(String nameKana){
+    public void setNameKana(String nameKana) {
         this.nameKana = nameKana;
     }
     
-    public String getNameRomaji(){
+    public String getNameRomaji() {
         return nameRomaji;
     }
     
-    public void setNameRomaji(String nameRomaji){
+    public void setNameRomaji(String nameRomaji) {
         this.nameRomaji = nameRomaji;
     }
     
-    public Type getType(){
+    public Type getType() {
         return type;
     }
     
-    public void setType(Type type){
+    public void setType(Type type) {
         this.type = type;
     }
     
-    public int getHeight(){
+    public int getHeight() {
         return height;
     }
     
-    public void setHeight(int height){
+    public void setHeight(int height) {
         this.height = height;
     }
     
-    public int getAge(){
+    public int getAge() {
         return age;
     }
     
-    public void setAge(int age){
+    public void setAge(int age) {
         this.age = age;
     }
     
-    public int getWeight(){
+    public int getWeight() {
         return weight;
     }
     
-    public void setWeight(int weight){
+    public void setWeight(int weight) {
         this.weight = weight;
     }
     
-    public Date getBirthday(){
+    public Date getBirthday() {
         return birthday;
     }
     
-    public void setBirthday(Date birthday){
+    public void setBirthday(Date birthday) {
         this.birthday = birthday;
     }
     
-    public Seiza getSeiza(){
+    public Seiza getSeiza() {
         return seiza;
     }
     
-    public void setSeiza(Seiza seiza){
+    public void setSeiza(Seiza seiza) {
         this.seiza = seiza;
     }
     
-    public Hometown getHometown(){
+    public Hometown getHometown() {
         return hometown;
     }
     
-    public void setHometown(Hometown hometown){
+    public void setHometown(Hometown hometown) {
         this.hometown = hometown;
     }
     
-    public String getHobby(){
+    public String getHobby() {
         return hobby;
     }
     
-    public void setHobby(String hobby){
+    public void setHobby(String hobby) {
         this.hobby = hobby;
     }
     
-    public String getCv(){
+    public String getCv() {
         return cv;
     }
     
-    public void setCv(String cv){
+    public void setCv(String cv) {
         this.cv = cv;
     }
     
-    public String getNote(){
+    public String getNote() {
         return note;
     }
     
-    public void setNote(String note){
+    public void setNote(String note) {
         this.note = note;
     }
 
     public CharaMaster(int id, String nameKanji, String nameKana, 
             String nameRomaji, Type type, int height, int age, int weight,
             Date birthday, Seiza seiza, Hometown hometown, String hobby,
-            String cv, String note){
+            String cv, String note) {
         super();
         this.id = id;
         this.nameKanji = nameKanji;
@@ -160,4 +160,5 @@ public class CharaMaster {
         this.cv = cv;
         this.note = note;
     }
+
 }

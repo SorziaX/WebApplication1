@@ -9,10 +9,8 @@
 <%@ page import="java.lang.Iterable" %> 
 <%@ page import="java.util.*" %>
 <%@ page import="java.text.SimpleDateFormat" %> 
-<%@ page import="cgsslog.CharaMasterDAO, cgsslog.CharaMaster"%>
-<%@ page import="cgsslog.TypeDAO, cgsslog.Type"%>
-<%@ page import="cgsslog.SeizaDAO, cgsslog.Seiza"%>
-<%@ page import="cgsslog.HometownDAO, cgsslog.Hometown"%>
+<%@ page import="cgsslog.*"%>
+<%@ page import="cgsslog.DAO.*"%>
 
 <!DOCTYPE html>
 <html>

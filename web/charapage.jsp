@@ -8,8 +8,7 @@
 <%@ page language="java" %> 
 <%@ page import="java.util.*" %> 
 <%@ page import="java.text.SimpleDateFormat" %> 
-<%@ page import="cgsslog.CharaMasterDAO, cgsslog.CharaMaster, cgsslog.CardMasterDAO,
-         cgsslog.CardMaster"%>
+<%@ page import="cgsslog.DAO.*, cgsslog.*"%>
 <!DOCTYPE html>
 <html>
     <head>

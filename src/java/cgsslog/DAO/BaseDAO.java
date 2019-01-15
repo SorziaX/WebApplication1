@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cgsslog;
+package cgsslog.DAO;
 import com.mysql.jdbc.Driver;
 import java.io.File;
 import java.io.FileInputStream;
@@ -28,16 +28,16 @@ public class BaseDAO {
     private PreparedStatement psmt;
     private ResultSet rs;
     
-    public BaseDAO(){
+    public BaseDAO() {
         this.connectDB();
     }
     
-    public void finalize(){
+    public void finalize() {
         this.closeDB();
     }
     
     public void connectDB() {
-        try{
+        try {
             System.out.println("connectDB Start");
             Properties prop = new Properties();
             InputStream in = null;
@@ -69,15 +69,15 @@ public class BaseDAO {
         }
     }
     
-    public ResultSet execute(String sql){
+    public ResultSet execute(String sql) {
    
-        try{
+        try {
             Class.forName("com.mysql.jdbc.Driver");
         } catch (ClassNotFoundException e){
             e.printStackTrace();
         }
         
-        try{
+        try {
             this.psmt = this.con.prepareStatement(sql); 
             this.rs = this.psmt.executeQuery();
         } catch (SQLException e) {
@@ -86,15 +86,15 @@ public class BaseDAO {
         return rs;
      }
     
-    public void executeUpdate(String sql){
+    public void executeUpdate(String sql) {
    
-        try{
+        try {
             Class.forName("com.mysql.jdbc.Driver");
         } catch (ClassNotFoundException e){
             e.printStackTrace();
         }
         
-        try{
+        try {
             this.psmt = this.con.prepareStatement(sql); 
             this.psmt.executeUpdate();
         } catch (SQLException e) {
@@ -102,25 +102,25 @@ public class BaseDAO {
         }
      }
 
-    public void close(){
+    public void close() {
         try {
-            if(this.rs!=null)
+            if (this.rs!=null)
             {
                 this.rs.close();
             }
-            if(this.psmt!=null)
+            if (this.psmt!=null)
             {
                 this.psmt.close();
             }
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
     
     
-    public void closeDB(){        
+    public void closeDB() {        
         try {
-            if(con!=null)
+            if (con!=null)
             {
                 con.close();
             }
@@ -128,4 +128,5 @@ public class BaseDAO {
             e.printStackTrace();
         }
     }
+    
 }

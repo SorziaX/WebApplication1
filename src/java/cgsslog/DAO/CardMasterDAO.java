@@ -3,7 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cgsslog;
+package cgsslog.DAO;
+import cgsslog.CardGetMethod;
+import cgsslog.CardMaster;
+import cgsslog.CharaMaster;
+import cgsslog.Hometown;
+import cgsslog.Rarity;
+import cgsslog.Seiza;
+import cgsslog.Skill;
+import cgsslog.Type;
 import java.sql.*;
 import java.util.List;
 import java.util.ArrayList;
@@ -13,11 +21,11 @@ import java.sql.Date;
  *
  * @author shenhanfei
  */
-public class CardMasterDAO extends BaseDAO{
+public class CardMasterDAO extends BaseDAO {
     
-    public List readCard(){
+    public List readCard() {
         
-        List<CardMaster> list = new ArrayList<CardMaster>();
+        List list = new ArrayList();
         String sql = null;
         
         sql = "SELECT t2.id, t2.card_name, t3.id, t3.name_Kanji, t3.name_kana,"
@@ -36,9 +44,8 @@ public class CardMasterDAO extends BaseDAO{
         
         ResultSet rs = this.execute(sql);
         
-        try{
-            while(rs.next())
-            {
+        try {
+            while(rs.next()) {
                 int cardId = rs.getInt(1);
                 String cardName = rs.getString(2);
                 int charaId = rs.getInt(3);
@@ -81,8 +88,7 @@ public class CardMasterDAO extends BaseDAO{
                 
                 list.add(cardMaster);
             }
-        } catch (SQLException e)
-        {
+        } catch (SQLException e) {
             e.printStackTrace();
         } finally {}
         
@@ -115,9 +121,8 @@ public class CardMasterDAO extends BaseDAO{
         
         ResultSet rs = this.execute(sql);
         
-        try{
-            while(rs.next())
-            {
+        try {
+            while(rs.next()) {
                 int cardId = rs.getInt(1);
                 String cardName = rs.getString(2);
                 charaId = rs.getInt(3);
@@ -160,8 +165,7 @@ public class CardMasterDAO extends BaseDAO{
                 
                 list.add(cardMaster);
             }
-        } catch (SQLException e)
-        {
+        } catch (SQLException e) {
             e.printStackTrace();
         } finally {}
         
@@ -169,7 +173,7 @@ public class CardMasterDAO extends BaseDAO{
         return list;
     }
     
-    public void addCard(CardMaster card){
+    public void addCard(CardMaster card) {
         
         String sql = null;
         

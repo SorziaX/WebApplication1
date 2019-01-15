@@ -7,7 +7,7 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page language="java" %> 
 <%@ page import="java.util.*" %> 
-<%@ page import="cgsslog.CharaMasterDAO,cgsslog.CharaMaster" %> 
+<%@ page import="cgsslog.*,cgsslog.DAO.*" %> 
 
 <!DOCTYPE html>
 <html>

@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cgsslog;
+package cgsslog.DAO;
 
+import cgsslog.Hometown;
 import java.sql.*;
 import java.util.Map;
 import java.util.HashMap;
@@ -17,7 +18,7 @@ import java.util.ArrayList;
  */
 public class HometownDAO extends BaseDAO{
     
-    public List readHome(){
+    public List readHome() {
         
         List<Hometown> list = new ArrayList<Hometown>();
         String sql = null;
@@ -28,8 +29,7 @@ public class HometownDAO extends BaseDAO{
         ResultSet rs = this.execute(sql);
         
         try{
-            while(rs.next())
-            {
+            while(rs.next()) {
                 Integer id = rs.getInt(1);
                 String country = rs.getString(2);
                 String province = rs.getString(3);
@@ -37,8 +37,7 @@ public class HometownDAO extends BaseDAO{
                 Hometown home = new Hometown(id, country, province);
                 list.add(home);
             }
-        } catch (SQLException e)
-        {
+        } catch (SQLException e) {
             e.printStackTrace();
         } finally {}
         

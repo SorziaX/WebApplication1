@@ -7,7 +7,7 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page language="java" %> 
 <%@ page import="java.util.*" %> 
-<%@ page import="cgsslog.CardMasterDAO,cgsslog.CardMaster" %>
+<%@ page import="cgsslog.DAO.CardMasterDAO,cgsslog.CardMaster" %>
 
 <!DOCTYPE html>
 <html>

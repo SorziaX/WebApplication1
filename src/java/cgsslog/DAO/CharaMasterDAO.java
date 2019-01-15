@@ -3,7 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cgsslog;
+package cgsslog.DAO;
+import cgsslog.CharaMaster;
+import cgsslog.Hometown;
+import cgsslog.Seiza;
+import cgsslog.Type;
 import java.sql.*;
 import java.util.List;
 import java.util.ArrayList;
@@ -14,7 +18,7 @@ import java.util.ArrayList;
  */
 public class CharaMasterDAO extends BaseDAO{
     
-    public List readChara(){
+    public List readChara() {
         
         List<CharaMaster> list = new ArrayList<CharaMaster>();
         String sql = null;
@@ -61,16 +65,16 @@ public class CharaMasterDAO extends BaseDAO{
                 
                 list.add(charaMaster);
             }
-        } catch (SQLException e)
-        {
+        } catch (SQLException e) {
             e.printStackTrace();
-        }finally{}
+        } finally {}
         
         this.close();
         return list;
+        
     }
 
-    public CharaMaster selectChara(int id){
+    public CharaMaster selectChara(int id) {
         
         Type type = new Type(0, null);
         Seiza seiza = new Seiza(0, null);
@@ -124,10 +128,9 @@ public class CharaMasterDAO extends BaseDAO{
                      nameKana, nameRomaji, type, height, age, weight, birthday,
                      seiza, hometown, hobby, cv, note);
 
-        } catch (SQLException e)
-        {
+        } catch (SQLException e) {
             e.printStackTrace();
-        }finally{}
+        } finally {}
         
         this.close();
         return cm;

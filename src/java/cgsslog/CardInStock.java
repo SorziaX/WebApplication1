@@ -19,65 +19,65 @@ public class CardInStock {
     private boolean maxLevelFlag;
     private boolean maxShinmitsuFlag;
     
-    public int getId(){
+    public int getId() {
         return id;
     }
     
-    public void setId(int id){
+    public void setId(int id) {
         this.id = id;
     }
     
-    public CardMaster getCardMaster(){
+    public CardMaster getCardMaster() {
         return cardMaster;
     }
     
-    public void setCardMaster(CardMaster cardMaster){
+    public void setCardMaster(CardMaster cardMaster) {
         this.cardMaster = cardMaster;
     }
     
-    public int getStarRank(){
+    public int getStarRank() {
         return starRank;
     }
     
-    public void setStarRank(int starRank){
+    public void setStarRank(int starRank) {
         this.starRank = starRank;
     }
  
-    public int getSkillLevel(){
+    public int getSkillLevel() {
         return skillLevel;
     }
     
-    public void setSkillLevel(int skillLevel){
+    public void setSkillLevel(int skillLevel) {
         this.skillLevel = skillLevel;
     }
     
-    public boolean getTokkunFlag(){
+    public boolean getTokkunFlag() {
         return tokkunFlag;
     }
     
-    public void setTokkunFlag(boolean tokkunFlag){
+    public void setTokkunFlag(boolean tokkunFlag) {
         this.tokkunFlag = tokkunFlag;
     }
     
-    public boolean getMaxLevelFlag(){
+    public boolean getMaxLevelFlag() {
         return maxLevelFlag;
     }
     
-    public void setMaxLevelFlag(boolean maxLevelFlag){
+    public void setMaxLevelFlag(boolean maxLevelFlag) {
         this.maxLevelFlag = maxLevelFlag;
     }
     
-    public boolean getMaxShinmitsuFlag(){
+    public boolean getMaxShinmitsuFlag() {
         return maxShinmitsuFlag;
     }
     
-    public void setMaxShinmitsuFlag(boolean maxShinmitsuFlag){
+    public void setMaxShinmitsuFlag(boolean maxShinmitsuFlag) {
         this.maxShinmitsuFlag = maxShinmitsuFlag;
     }
     
     public CardInStock(int id, CardMaster cardMaster, int starRank, 
             int skillLevel, boolean tokkunFlag, boolean maxLevelFlag, 
-            boolean maxShinmitsuFlag){
+            boolean maxShinmitsuFlag) {
         super();
         this.id = id;
         this.cardMaster = cardMaster;
@@ -86,7 +86,6 @@ public class CardInStock {
         this.tokkunFlag = tokkunFlag;
         this.maxLevelFlag = maxLevelFlag;
         this.maxShinmitsuFlag = maxShinmitsuFlag;
-    }    
-    
+    }
     
 }

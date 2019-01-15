@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cgsslog;
+package cgsslog.DAO;
 
 /**
  *
  * @author shenhanfei
  */
-public class RarityDAO extends BaseDAO{
+public class CardGetMethodDAO extends BaseDAO{
     
 }
