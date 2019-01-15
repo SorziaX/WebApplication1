@@ -20,7 +20,7 @@ public class CharaMasterDAO extends BaseDAO{
     
     public List readChara() {
         
-        List<CharaMaster> list = new ArrayList<CharaMaster>();
+        List list = new ArrayList();
         String sql = null;
         
         sql = "SELECT t3.id, t3.name_kanji, t3.name_kana, t3.name_romaji, t7.id,"

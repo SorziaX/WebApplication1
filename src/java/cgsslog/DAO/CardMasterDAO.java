@@ -195,5 +195,53 @@ public class CardMasterDAO extends BaseDAO {
         this.close();
     }
     
+    public CardMaster selectCard(int id) {
+        
+        Type type = new Type(0, null);
+        Seiza seiza = new Seiza(0, null);
+        Hometown hometown = new Hometown(0, null, null);
+        CharaMaster cm = new CharaMaster(0, null, null, null, type, 0, 0, 0,
+                            null, seiza, hometown, null, null, null);
+        Rarity rarity = new Rarity(0,null);
+        CardGetMethod cgm = new CardGetMethod(0,null);
+        Skill skill = new Skill(0,null);
+        
+        CardMaster cdm = new CardMaster(0, null, cm, rarity, cgm, skill);
+        
+        String sql = null;
+        int cardId = id;
+        
+        sql = "SELECT t2.id, t2.card_name, t3.id, t6.id, t4.id, t5.id"
+            + " FROM 02_cardmaster t2"    
+            + " LEFT JOIN 03_charamaster t3 on t2.chara_id = t3.id"
+            + " LEFT JOIN 04_cardgetmethod t4 ON t2.get_id = t4.id"
+            + " LEFT JOIN 05_skill t5 ON t2.skill_id = t5.id"
+            + " LEFT JOIN 06_rarity t6 ON t2.rarity_id = t6.id"
+            + " WHERE t2.id =" + cardId; 
+        
+        System.out.println(sql);
+        
+        ResultSet rs4 = this.execute(sql);
+                
+        try{
+            rs4.next();
+            String cardName = rs4.getString(2);
+            int charaId = rs4.getInt(3);
+            int rarityId = rs4.getInt(4);
+            int cgmId = rs4.getInt(5);
+            int skillId  = rs4.getInt(6);
+                
+            cm.setId(charaId);
+            rarity.setId(rarityId);
+            
+            cdm = new CardMaster(cardId, cardName, cm, rarity, cgm, skill);
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {}
+        
+        this.close();
+        return cdm;
+    }
 }
 

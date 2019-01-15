@@ -8,7 +8,7 @@
 <%@ page language="java" %> 
 <%@ page import="java.util.*" %>
 <%@ page import="java.sql.Date" %> 
-<%@ page import="cgsslog.*" %>
+<%@ page import="cgsslog.*, cgsslog.DAO.*" %>
          
 <!DOCTYPE html>
 <html>
@@ -17,26 +17,6 @@
         <link rel="stylesheet" href="css/style.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script type="text/javascript">
-            function validate_required(field,alerttxt)
-            {
-            with (field)
-            {
-                if (value == null || value == "")
-                    {alert(alerttxt);return false}
-                else {return true}
-                }
-            }
-
-            function validate_form(thisform)
-            {
-            with (thisform)
-                {
-                if (validate_required(card_name,"请填写卡牌名称！")==false)
-                {card_name.focus();return false}
-                }
-            }
-        </script>
     </head>
     <body>
         <form method="post" action="addcard.jsp" accept-charset="UTF-8">
@@ -47,14 +27,7 @@
             <br>
             角色编号:<br>
             <input type="text" name="chara_id">
-            
-            <!--START:角色姓名显示-->
-            <div style="display:none;width:100px;height:30px;background-color:#AAAAAA;"><!--隐藏-->
-            </div> 
-            <div style="display:block;width:100px;height:30px;background-color:#AAAAAA;"><!--显示-->
-            </div>
-            <!--END:角色姓名显示-->
-            
+            <br>
             稀有度:<br>
             <input type="radio" name="rarity_id" value="1">N
             <input type="radio" name="rarity_id" value="2">R
@@ -62,20 +35,7 @@
             <input type="radio" name="rarity_id" value="4">SSR
             <br>
             <button type="submit" value="submit"">添加卡牌</button>
-            
- 
-            
             <br>
-            
-            <div style="display:none;width:700px;height:100px;background-color:#AAAAAA;"><!--隐藏-->
-            
-
-            </div> 
-
-            <div style="display:block;width:700px;height:100px;background-color:#AAAAAA;"><!--显示-->
-            
-
-            </div> 
         </form>
         
         <%
