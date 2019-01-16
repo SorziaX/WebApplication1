@@ -51,7 +51,7 @@
                                 <form method="post" action="cardinstockedit.jsp" accept-charset="UTF-8">
                                     <button type="submit" value="submit"">添加</button>
                                 </form>
-                            </td>
+                        </td>
                     </tr>
                     <%}
 

@@ -7,7 +7,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page language="java" %> 
 <%@ page import="java.util.*" %>
-<%@ page import="java.sql.Date" %> 
 <%@ page import="cgsslog.*, cgsslog.DAO.*" %>
 
 <!DOCTYPE html>
@@ -24,8 +23,7 @@
             CardMasterDAO dao = new CardMasterDAO();
             CardMaster cdm = dao.selectCard(cardId);
         %>
-        <form method="post" action="cardinstock.jsp" accept-charset="UTF-8">
-            <button type="submit" value="submit"">确定</button>
+        <form method="post" action="addcardinstock.jsp" accept-charset="UTF-8">
             <table border ="1">
                 <tr>
                     <td>卡片名</td>
@@ -55,10 +53,10 @@
                         <input type="radio" name="maxshinmitsu_flag" value="false">No
                     </td>
                 </tr>
+                <button type="submit" value="submit"">确定</button>
         </form>
         <%
-        request.setCharacterEncoding("UTF-8");    
-        String starRankString =request.getParameter("star_rank");
+        String starRankString = request.getParameter("star_rank");
         System.out.println("debug1");
         System.out.println(starRankString);
         
@@ -66,8 +64,8 @@
             
             System.out.println("debug2");
             
-            int skillLevel=Integer.parseInt(request.getParameter("skill_level"));
             int starRank=Integer.parseInt(request.getParameter("star_rank"));
+            int skillLevel=Integer.parseInt(request.getParameter("skill_level"));
             boolean tokkunFlag=Boolean.parseBoolean(request.getParameter("tokkun_flag")); 
             boolean maxLevelFlag=Boolean.parseBoolean(request.getParameter("maxlevel_flag")); 
             boolean maxShinmitsuFlag=Boolean.parseBoolean(request.getParameter("maxshinmitsu_flag")); 
