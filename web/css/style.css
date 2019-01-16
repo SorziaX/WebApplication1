@@ -7,35 +7,70 @@ and open the template in the editor.
     Created on : 2018/12/14, 11:31:36
     Author     : shenhanfei
 */
+       html {
+           background: #FAFAD2;
+       }
+       
+       h2 {
+           font-size: 35px;
+           line-height: 55px;
+           text-align: center;
+           background: #c1d5eb;
+           font-family: 'kaiti', 'microsoft yahei';
+           text-shadow: 0px 1px 0px #f2f2f2;
+       }
+       
+       .content {
+           display: flex;
+           height: 400px;
+           width: 800px;
+           margin: 50px auto;
+           border: 1px solid #8F8F8F;
+           border-top: 3px solid #8F8F8F;
+       }
+       
+       .content-left {
+           flex: 0 0 200px;
+           background-color: #fafafa;
+       }
+       
+       .content-right {
+           flex: 1;
+           line-height: 400px;
+           font-size: 30px;
+           background-color: #DEDEDE;
+           text-align: center;
+       }
+       
+       ul {
+           margin: 0;
+           padding: 0;
+           width: 100%;
+       }
+       
+       .menu {
+           display: block;
+           text-align: center;
+           vertical-align: middle;
+           height: 50px;
+           line-height: 50px;
+           /*border-bottom: 1px solid #787878; */
+       }
+       
+       .menu a {
+           display: block;
+           text-decoration: none;
+           color: #333;
+           border-bottom: 1px solid #787878;
+       }
+       
+       .menu:hover {
+           background: #DEDEDE;
+       }
+ 
+ 
+       .active {
+        background: #DEDEDE;
+       }
 
-input{
-    height:27px;
-    font-size:15px;
-    border:1px solid #d9d9d9;
-    padding:0 6px;
-    width:200px;
-}
 
-table{
-    border: solid 2px black;
-    border-collapse: collapse;
-}
-
-table th{
-    padding: 10px;
-    border: solid 1px black; 
-}
-
-table td{
-    padding:5px;
-    border: solid 1px black;
-}
-
-.box{
-    display: inline-block;
-    max-width: 500px;
-    max-height: 500px;
-    margin: 10px;
-    padding: 10px;
-    vertical-align:top;
-}

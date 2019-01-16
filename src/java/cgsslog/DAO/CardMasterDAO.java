@@ -98,7 +98,7 @@ public class CardMasterDAO extends BaseDAO {
 
     public List readCharaCard(int charaId){
         
-        List<CardMaster> list = new ArrayList<CardMaster>();
+        List list = new ArrayList();
         String sql = null;
         
         sql = "SELECT t2.id, t2.card_name, t3.id, t3.name_Kanji, t3.name_kana,"
@@ -211,7 +211,8 @@ public class CardMasterDAO extends BaseDAO {
         String sql = null;
         int cardId = id;
         
-        sql = "SELECT t2.id, t2.card_name, t3.id, t6.id, t4.id, t5.id"
+        sql = "SELECT t2.id, t2.card_name, t3.id, t3.name_kanji,"
+            + " t6.id, t6.name, t4.id, t4.name, t5.id, t5.name"
             + " FROM 02_cardmaster t2"    
             + " LEFT JOIN 03_charamaster t3 on t2.chara_id = t3.id"
             + " LEFT JOIN 04_cardgetmethod t4 ON t2.get_id = t4.id"
@@ -227,12 +228,19 @@ public class CardMasterDAO extends BaseDAO {
             rs4.next();
             String cardName = rs4.getString(2);
             int charaId = rs4.getInt(3);
-            int rarityId = rs4.getInt(4);
-            int cgmId = rs4.getInt(5);
-            int skillId  = rs4.getInt(6);
+            String nameKanji = rs4.getString(4);
+            int rarityId = rs4.getInt(5);
+            String rarityName = rs4.getString(6);
+            int cgmId = rs4.getInt(7);
+            String cgmName = rs4.getString(8);
+            int skillId  = rs4.getInt(9);
+            String skillName = rs4.getString(10);
                 
             cm.setId(charaId);
-            rarity.setId(rarityId);
+            cm.setNameKanji(nameKanji);
+            rarity = new Rarity(rarityId, rarityName);
+            cgm = new CardGetMethod(cgmId, cgmName);
+            skill = new Skill(skillId, skillName);
             
             cdm = new CardMaster(cardId, cardName, cm, rarity, cgm, skill);
             

@@ -24,6 +24,8 @@
             
             CardMasterDAO dao2 = new CardMasterDAO();
             List<CardMaster> list = dao2.readCharaCard(charaId);
+            
+            CardInStockDAO dao3 = new CardInStockDAO();
         %>
         <div class="page">   <!--大框架开始-->
         <a href="charalist.jsp">返回一览</a>
@@ -71,6 +73,8 @@
                 <tr>
                     <th>卡片名</th>
                     <th>稀有度</th>
+                    <th>持有数</th>
+                    <th>获取卡片</th>
                 </tr>
                     <%
                     for(CardMaster cdm:list)
@@ -78,6 +82,12 @@
                         <tr>
                             <td><%=cdm.getCardName() %></td>
                             <td><%=cdm.rarity.getName() %></td>
+                            <td><%=dao3.countCard(cdm.getId())%></td>
+                            <td>
+                                <form method="post" action="addcardinstock.jsp?id=<%=cdm.getId()%>" accept-charset="UTF-8">
+                                    <button type="submit" value="submit"">添加</button>
+                                </form>
+                            </td>
                         </tr>
                         <%}
                     %>

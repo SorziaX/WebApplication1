@@ -12,7 +12,7 @@ package cgsslog;
 public class CardInStock {
    
     private int id;
-    private CardMaster cardMaster;
+    public CardMaster cardMaster;
     private int starRank;
     private int skillLevel;
     private boolean tokkunFlag;
