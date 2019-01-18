@@ -83,6 +83,11 @@
                     </div>
                     <div class="profile-2-right">
                         profile-2-right
+                        <div id="card_list">
+                            
+                        </div>
+
+                        <!--
                         <ul class="thead">
                             <li2>卡片名</li2>
                             <li3>稀有度</li3>
@@ -93,14 +98,14 @@
                             <li2><p id="cardName"></p></li2>
                             <li3><p id="rarityName"></p></li3>
                             <li1><p id="cardAmount"></p></li1>
-                            <!--
+                            
                             <li3>
                                 <form method="post" action="addcardinstock.jsp?id=<p id="cardId"></p>" accept-charset="UTF-8">
                                     <button type="submit" value="submit"">添加</button>
                                 </form>
                             </li3>
-                            --!>
                         </ul>
+                        !-->
                     </div>
                 </div>
             </div>
@@ -122,26 +127,19 @@
                     document.getElementById("age").innerHTML =   "年龄：" + obj.chara.age;
                     document.getElementById("weight").innerHTML =   "体重：" + obj.chara.weight + "kg";
                     document.getElementById("birthday").innerHTML =   "生日：" + obj.chara.birthday;
-                    document.getElementById("hometown").innerHTML =   "出生地：" + obj.chara.country + " " + obj.province;
+                    document.getElementById("hometown").innerHTML =   "出生地：" + obj.chara.country + " " + obj.chara.province;
                     document.getElementById("hobby").innerHTML =   "兴趣：" + obj.chara.hobby;
                     document.getElementById("cv").innerHTML =   "CV：" + obj.chara.cv;
                     document.getElementById("note").innerHTML =   "NOTE：" + obj.chara.note;
                     
                     
-                    for (var i=0;i<obj.charalist.length;i++)
-                    {
+                    document.getElementById("card_list").innerHTML = "";
+                    for(var i in obj.cardList){
                         var div = document.createElement("div");
-                        div.innerHTML = obj.charalist[i].cardId;
-                        document.getElementById("cardId").appendChild(div);
-                        div.innerHTML = obj.charalist[i].cardName;
-                        document.getElementById("cardName").appendChild(div);
-                        div.innerHTML = obj.charalist[i].rarityName;
-                        document.getElementById("rarityName").appendChild(div);
-                        div.innerHTML = obj.charalist[i].cardAmount;
-                        document.getElementById("cardAmount").appendChild(div);
+                        div.innerHTML = obj.cardList[i].cardName;
+                        document.getElementById("card_list").appendChild(div);
                     }
                     
-                }
             </script>
 
         </div>
