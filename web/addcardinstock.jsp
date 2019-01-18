@@ -23,7 +23,7 @@
             CardMasterDAO dao = new CardMasterDAO();
             CardMaster cdm = dao.selectCard(cardId);
         %>
-        <form method="post" action="addcardinstock.jsp" accept-charset="UTF-8">
+        <form method="post" action="addcardinstock.jsp?id=<%=cardId%>" accept-charset="UTF-8">
             <table border ="1">
                 <tr>
                     <td>卡片名</td>
@@ -41,15 +41,15 @@
                     <td><input type="text" name="star_rank"></td>
                     <td><input type="text" name="skill_level"></td>
                     <td>
-                        <input type="radio" name="tokkun_flag" value="ture">特训后
+                        <input type="radio" name="tokkun_flag" value="true">特训后
                         <input type="radio" name="tokkun_flag" value="false">特训前
                     </td>
                     <td>
-                        <input type="radio" name="maxlevel_flag" value="ture">Yes
+                        <input type="radio" name="maxlevel_flag" value="true">Yes
                         <input type="radio" name="maxlevel_flag" value="false">No
                     </td>
                     <td>
-                        <input type="radio" name="maxshinmitsu_flag" value="ture">Max
+                        <input type="radio" name="maxshinmitsu_flag" value="true">Max
                         <input type="radio" name="maxshinmitsu_flag" value="false">No
                     </td>
                 </tr>
@@ -81,6 +81,9 @@
             {
             e.printStackTrace();
             }
+            response.setStatus(HttpServletResponse.SC_MOVED_PERMANENTLY);
+            String newLocn="cardinstock.jsp";
+            response.setHeader("Location",newLocn);         
         }
         %>
     </body>

@@ -63,13 +63,27 @@
                     <td><%=cis.cardMaster.getCardName() %></a></td>
                     <td><%=cis.cardMaster.charaMaster.getNameKanji()%></td>
                     <td><%=cis.cardMaster.rarity.getName() %></td>
-                    <td><input type="text" name="star_rank"></td>
-                    <td><input type="text" name="skill_level"></td>
-                    <td><input type="text" name="tokkun_flag"></td>
-                    <td><input type="text" name="maxlevel_flag"></td>
-                    <td><input type="text" name="maxshinmitsu_flag"></td>
+                    <td><input type="text" name="star_rank" value="<%=cis.getStarRank()%>"></td>
+                    <td><input type="text" name="skill_level" value="<%=cis.getSkillLevel()%>"></td>
+                    <td>
+                        <input type="radio" name="tokkun_flag" value="true" 
+                               <%if(cis.getTokkunFlag()) {{%>selected<%}}%>
+                                >True
+                        <input type="radio" name="tokkun_flag" value="false"
+                                <%if(!cis.getTokkunFlag()) {{%>selected<%}}%>
+                                >False
+                    </td>
+                    <td>
+                        <input type="radio" name="maxlevel_flag" value="true">True
+                        <input type="radio" name="maxlevel_flag" value="false">False
+                    </td>
+                    <td>
+                        <input type="radio" name="maxshinmitsu_flag" value="true">True
+                        <input type="radio" name="maxshinmitsu_flag" value="false">False
+                    </td>
                 </tr>
                 </form>
-                    
+                <%  
+                %>
     </body>
 </html>

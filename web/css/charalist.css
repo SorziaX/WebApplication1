@@ -1,0 +1,147 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2019/01/18, 8:41:07
+    Author     : shenhanfei
+*/
+html, body, div, ul, li, h1, h2, h3, h4, h5, h6, p, dl, dt, dd, ol, form, input, textarea, th, td, select {
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    font-size: 20px;
+    line-height: 25px;
+}
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    height: 500px;
+    width: 1000px;
+    margin: 20px auto;
+    border: 1px solid #8F8F8F;
+    border-top: 3px solid #8F8F8F;
+}
+.content-menu{
+    height: 20px;
+    width: 1000px;
+    background-color: #faf2fa;
+}
+
+.chara-list {
+    width: 350px;
+    height: 480px;
+    background-color: #fafafa;
+    overflow: auto;
+}
+            
+.chara-page{
+    width: 630px;
+    height: 460px;
+    margin: 10px;
+    
+    background-color: #fafaf1;
+}
+
+.profile-1{
+    display: flex;
+    width: 630px;
+    height: 180px;
+    background-color: #f0f0ea;
+}
+
+.profile-1-left{
+    width: 400px;
+    height: 180px;
+    background-color: #e2e0ea;
+}
+
+.profile-1-right{
+    width: 230px;
+    height: 180px;
+    background-color: #fee0ea;
+}
+
+.profile-2{
+    display:flex;
+    width: 630px;
+    height: 280px;
+    background-color: #e2f0ea;
+}
+
+.profile-2-left{
+    width: 280px;
+    height: 280px;
+    background-color: #f0f0ea;   
+}
+
+.profile-2-right{
+    width: 350px;
+    height: 280px;
+    background-color: #f0fafa; 
+    overflow: auto;  
+    
+}
+            
+ul{
+    height:25px;
+    width: auto width;
+    line-height:20px;
+    font-size:12px;
+    list-style:none;
+    padding:0px;
+    margin:0px;
+}
+
+ul li1{
+    text-align:center;
+    display:block;
+    width:50px;
+    float:left;
+    color:#100;
+}
+
+ul li2{
+    text-align:center;
+    display:block;
+    width:130px;
+    float:left;
+    color:black;
+}
+
+ul li3{
+    text-align:center;
+    display:block;
+    width:80px;
+    float:left;
+    color:#100;
+}
+
+ul li4{
+    height:18px;
+    text-align:left;
+    display:block;
+    width:300px;
+    color:#000;
+    line-height:18px;
+    font-size:16px;
+}
+ul li5{
+    height:18px;
+    text-align:left;
+    display:block;
+    width:300px;
+    color:#000;
+    line-height:18px;
+    font-size:16px;
+}
+
+.thead{
+    background:#F1FADE;
+    color:#F90;
+    font-weight:bold;
+    border-top:1px solid green;
+}

@@ -21,7 +21,6 @@
             <a href="index.html">返回</a>
             <a href="addcard.jsp">添加卡牌</a>
             <br>
-            卡片持有率：
             <br>
             <table border ="1">
                 <tr>
@@ -48,7 +47,7 @@
                         <td><%=cm.rarity.getName() %></td>
                         <td><%=dao2.countCard(cm.getId())%></td>
                         <td>
-                                <form method="post" action="cardinstockedit.jsp" accept-charset="UTF-8">
+                            <form method="post" action="addcardinstock.jsp?id=<%=cm.getId()%>" accept-charset="UTF-8">
                                     <button type="submit" value="submit"">添加</button>
                                 </form>
                         </td>

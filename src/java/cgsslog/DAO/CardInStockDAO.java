@@ -37,7 +37,8 @@ public class CardInStockDAO extends BaseDAO{
             + " FROM 01_cardinstock t1"
             + " LEFT JOIN 02_cardmaster t2 ON t1.card_id = t2.id"
             + " LEFT JOIN 03_charamaster t3 ON t2.chara_id = t3.id"
-            + " LEFT JOIN 06_rarity t6 ON t2.rarity_id = t6.id"; 
+            + " LEFT JOIN 06_rarity t6 ON t2.rarity_id = t6.id"
+            + " ORDER BY t1.id"; 
         
         ResultSet rs = this.execute(sql);
         

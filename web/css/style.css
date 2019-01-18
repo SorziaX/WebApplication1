@@ -7,70 +7,73 @@ and open the template in the editor.
     Created on : 2018/12/14, 11:31:36
     Author     : shenhanfei
 */
-       html {
-           background: #FAFAD2;
-       }
-       
-       h2 {
-           font-size: 35px;
-           line-height: 55px;
-           text-align: center;
-           background: #c1d5eb;
-           font-family: 'kaiti', 'microsoft yahei';
-           text-shadow: 0px 1px 0px #f2f2f2;
-       }
-       
-       .content {
-           display: flex;
-           height: 400px;
-           width: 800px;
-           margin: 50px auto;
-           border: 1px solid #8F8F8F;
-           border-top: 3px solid #8F8F8F;
-       }
-       
-       .content-left {
-           flex: 0 0 200px;
-           background-color: #fafafa;
-       }
-       
-       .content-right {
-           flex: 1;
-           line-height: 400px;
-           font-size: 30px;
-           background-color: #DEDEDE;
-           text-align: center;
-       }
-       
-       ul {
-           margin: 0;
-           padding: 0;
-           width: 100%;
-       }
-       
-       .menu {
-           display: block;
-           text-align: center;
-           vertical-align: middle;
-           height: 50px;
-           line-height: 50px;
-           /*border-bottom: 1px solid #787878; */
-       }
-       
-       .menu a {
-           display: block;
-           text-decoration: none;
-           color: #333;
-           border-bottom: 1px solid #787878;
-       }
-       
-       .menu:hover {
-           background: #DEDEDE;
-       }
- 
- 
-       .active {
-        background: #DEDEDE;
-       }
+h2 {
+    margin: 20px auto;
+    font-size: 20px;
+    line-height: 25px;
+    text-align: left;
+    text-shadow: 0px 1px 0px #f2f2f2;
+}
+.content {
+    display: flex;
+    height: 500px;
+    width: 1000px;
+    margin: 20px auto;
+    border: 1px solid #8F8F8F;
+    border-top: 3px solid #8F8F8F;
+}
+
+.chara-list {
+    flex: 0 0 350px;
+    background-color: #fafafa;
+    overflow: auto;
+}
+            
+.chara-page{
+    flex: 1;
+    margin: 10px;
+    padding: 10px;
+}
+            
+ul{
+    height:25px;
+    width: auto width;
+    line-height:20px;
+    font-size:12px;
+    list-style:none;
+    padding:0px;
+    margin:0px;
+}
+
+ul li1{
+    text-align:center;
+    display:block;
+    width:50px;
+    float:left;
+    color:#999;
+}
+
+ul li2{
+    text-align:center;
+    display:block;
+    width:130px;
+    float:left;
+    color:#100;
+}
+
+ul li3{
+    text-align:center;
+    display:block;
+    width:80px;
+    float:left;
+    color:#999;
+}
+
+.thead{
+    background:#F1FADE;
+    color:#F90;
+    font-weight:bold;
+    border-top:1px solid green;
+}
 
 
