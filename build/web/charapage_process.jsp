@@ -57,10 +57,10 @@
         JSONObject obj3 = new JSONObject();
         int cardId = cdm.getId();
         cardAmount = dao3.countCard(cardId);
-        obj3.put("cardId"+ i, cardId);
-        obj3.put("cardName"+ i, cdm.getCardName());
-        obj3.put("rarityName"+ i,cdm.rarity.getName());
-        obj3.put("cardAmount"+ i,cardAmount);
+        obj3.put("cardId", cardId);
+        obj3.put("cardName", cdm.getCardName());
+        obj3.put("rarityName",cdm.rarity.getName());
+        obj3.put("cardAmount",cardAmount);
         list2.put(obj3);
         i++;
     }

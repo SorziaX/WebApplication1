@@ -12,10 +12,47 @@ html, body, div, ul, li, h1, h2, h3, h4, h5, h6, p, dl, dt, dd, ol, form, input,
     padding: 0;
 }
 
-h2 {
-    font-size: 20px;
-    line-height: 25px;
+#nameKanji {
+    font-size: 30px;
+    line-height: 40px;
 }
+
+#type-cute{
+    display: none;
+    width: 100px;
+    height:30px;
+    text-align:center;
+    margin:2px 0px 0px 0px;
+    border: 1px solid gray; 
+    border-radius:30px;
+    color: #3b3b3b;
+    background-color: #ffe6ea;
+}
+
+#type-cool{
+    display: none;
+    width: 100px;
+    height:30px;
+    text-align:center;
+    margin:2px 0px 0px 0px;
+    border: 1px solid gray; 
+    border-radius:10px;
+    color: #3b3b3b;
+    background-color: #e3ffff;
+}
+
+#type-passion{
+    display: none;
+    width: 100px;
+    height:30px;
+    text-align:center;
+    margin:2px 0px 0px 0px;
+    border: 1px solid gray; 
+    border-radius:10px;
+    color: #3b3b3b;
+    background-color: #fff6b5;
+}
+
 .content {
     display: flex;
     flex-wrap: wrap;
@@ -32,116 +69,108 @@ h2 {
 }
 
 .chara-list {
-    width: 350px;
+    width: 300px;
     height: 480px;
     background-color: #fafafa;
     overflow: auto;
 }
+
+#chara-list1 {
+    width: 40px;
+    height: 30px;
+    float: left;
+    text-align:center;
+    margin:2px 0px 0px 0px;
+    color: #3b3b3b;
+}
+
+#chara-list2-cute {
+    width: 250px;
+    height:30px;
+    float: left;
+    text-align:center;
+    margin:2px 0px 0px 0px;
+    border: 1px solid gray; 
+    border-radius:10px;
+    color: #3b3b3b;
+    background-color: #ffe6ea;
+}
+
+#chara-list2-cool {
+    width: 250px;
+    height:30px;
+    float: left;
+    text-align:center;
+    margin:2px 0px 0px 0px;
+    border: 1px solid gray; 
+    border-radius:10px;
+    color: #3b3b3b;
+    background-color: #e3ffff;
+}
+
+#chara-list2-passion {
+    width: 250px;
+    height:30px;
+    float: left;
+    text-align:center;
+    margin:2px 0px 0px 0px;
+    border: 1px solid gray; 
+    border-radius:10px;
+    color: #3b3b3b;
+    background-color: #fff6b5;
+}
             
 .chara-page{
-    width: 630px;
+    display: flex;
+    width: 680px;
     height: 460px;
     margin: 10px;
-    
-    background-color: #fafaf1;
 }
 
-.profile-1{
-    display: flex;
-    width: 630px;
-    height: 180px;
+#chara-image{
     background-color: #f0f0ea;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
 }
 
-.profile-1-left{
-    width: 400px;
-    height: 180px;
-    background-color: #e2e0ea;
+.profile-left{
+    display: flex;
+    flex-direction: column;
+    width: 410px;
+    height: 460px;
+    background-color: #4f3737;
 }
 
-.profile-1-right{
-    width: 230px;
-    height: 180px;
-    background-color: #fee0ea;
-}
-
-.profile-2{
+.profile-right{
     display:flex;
-    width: 630px;
-    height: 280px;
-    background-color: #e2f0ea;
+    width: 270px;
+    height: 460px;
+    background-color: #3f8053;
 }
 
-.profile-2-left{
-    width: 280px;
-    height: 280px;
+.profile-left-1{
+    margin: 5px 0px 0px 5px;
+    width: 405px;
+    height: 195px;
+    background-color: #e83861;
+    background-repeat: no-repeat;
+    background-position:bottom right;
+}
+
+.profile-left-2{
+    margin: 0px 0px 5px 5px;
+    width: 405px;
+    height: 255px;
     background-color: #f0f0ea;   
 }
 
-.profile-2-right{
-    width: 350px;
-    height: 280px;
+.profile-right-1{
+    margin:10px 10px 10px 10px;
+    width: 250px;
+    height: 440px;
     background-color: #f0fafa; 
     overflow: auto;  
     
 }
             
-ul{
-    height:25px;
-    width: auto width;
-    line-height:20px;
-    font-size:12px;
-    list-style:none;
-    padding:0px;
-    margin:0px;
-}
 
-ul li1{
-    text-align:center;
-    display:block;
-    width:50px;
-    float:left;
-    color:#100;
-}
-
-ul li2{
-    text-align:center;
-    display:block;
-    width:130px;
-    float:left;
-    color:black;
-}
-
-ul li3{
-    text-align:center;
-    display:block;
-    width:80px;
-    float:left;
-    color:#100;
-}
-
-ul li4{
-    height:18px;
-    text-align:left;
-    display:block;
-    width:300px;
-    color:#000;
-    line-height:18px;
-    font-size:16px;
-}
-ul li5{
-    height:18px;
-    text-align:left;
-    display:block;
-    width:300px;
-    color:#000;
-    line-height:18px;
-    font-size:16px;
-}
-
-.thead{
-    background:#F1FADE;
-    color:#F90;
-    font-weight:bold;
-    border-top:1px solid green;
-}
