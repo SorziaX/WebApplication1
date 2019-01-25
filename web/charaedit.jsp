@@ -246,7 +246,6 @@
         %>      
         
             <form method="post" action="charaedit.jsp?id=<%=cm.getId()%>" accept-charset="UTF-8">
-            <a href="charapage.jsp?id=<%=charaId%>">返回角色信息</a>
             <br>
             <table>
             <tr>

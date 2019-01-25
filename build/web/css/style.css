@@ -23,57 +23,7 @@ h2 {
     border-top: 3px solid #8F8F8F;
 }
 
-.chara-list {
-    flex: 0 0 350px;
-    background-color: #fafafa;
-    overflow: auto;
+#card-info{
+    width: auto;
+    height: 500px;
 }
-            
-.chara-page{
-    flex: 1;
-    margin: 10px;
-    padding: 10px;
-}
-            
-ul{
-    height:25px;
-    width: auto width;
-    line-height:20px;
-    font-size:12px;
-    list-style:none;
-    padding:0px;
-    margin:0px;
-}
-
-ul li1{
-    text-align:center;
-    display:block;
-    width:50px;
-    float:left;
-    color:#999;
-}
-
-ul li2{
-    text-align:center;
-    display:block;
-    width:130px;
-    float:left;
-    color:#100;
-}
-
-ul li3{
-    text-align:center;
-    display:block;
-    width:80px;
-    float:left;
-    color:#999;
-}
-
-.thead{
-    background:#F1FADE;
-    color:#F90;
-    font-weight:bold;
-    border-top:1px solid green;
-}
-
-

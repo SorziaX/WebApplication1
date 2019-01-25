@@ -54,20 +54,21 @@
                         <p id="nameKana"></p>
                         <p id="nameKanji"></p>
                         <p id="nameRomaji"></p>
-                            <p id="type-cute"></p>
-                            <p id="type-cool"></p>
-                            <p id="type-passion"></p>
+                        <p id="type-cute"></p>
+                        <p id="type-cool"></p>
+                        <p id="type-passion"></p>
+                        <p id="editChara"></p>
                     </div>
                     <div class="profile-left-2">
                         <ul>
-                            <li4><p id="height"></p></li4>
-                            <li4><p id="age"></p></li4>
-                            <li4><p id="weight"></p></li4>
-                            <li4><p id="birthday"></p></li4>    
-                            <li4><p id="hometown"></p></li4>
-                            <li4><p id="hobby"></p></li4>
-                            <li4><p id="cv"></p></li4>
-                            <li4><p id="note"></p></li4>
+                            <p id="height"></p>
+                            <p id="age"></p>
+                            <p id="weight"></p>
+                            <p id="birthday"></p>
+                            <p id="hometown"></p>
+                            <p id="hobby"></p>
+                            <p id="cv"></p>
+                            <p id="note"></p>
                         </ul>
                     </div>
                 </div>
@@ -107,6 +108,8 @@
                         document.getElementById("type-cool").style.display = "none";
                         document.getElementById("type-passion").style.display = "none";
                     }
+                    document.getElementById("editChara").innerHTML = "<a href=\"charaedit.jsp?id="+ obj.chara.id +"\">修改角色信息</a>"
+                    
                     document.getElementById("height").innerHTML =   "身高：" + obj.chara.height + "cm";
                     document.getElementById("age").innerHTML =   "年龄：" + obj.chara.age;
                     document.getElementById("weight").innerHTML =   "体重：" + obj.chara.weight + "kg";
@@ -178,6 +181,8 @@
                     }
                         
                 }
+                
+                
                     
             </script>
 

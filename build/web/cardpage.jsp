@@ -27,15 +27,40 @@
         <a href="cardlist.jsp">返回一览</a>
         <a href="cardedit.jsp?id=<%=cardId%>">修改卡片信息</a>
         
-        <br><br>
-                卡片信息
-                <ul>
-                    <li>卡片名称：<%=cdm.getCardName()%></li>
-                    <li>角色名称：<%=cdm.charaMaster.getNameKanji()%></li>
-                    <li>稀有度：<%=cdm.rarity.getName()%></li>
-                    <li>获取方式：<%=cdm.cardGetMethod.getName()%></li>
-                    <li>技能：<%=cdm.skill.getName()%></li>
+        <br>
+                <h2>卡片信息</h2>
+                <div id="card-info">
+                    卡片名称：<%=cdm.getCardName()%>
+                    <br>
+                    角色名称：<%=cdm.charaMaster.getNameKanji()%>
+                    <br>
+                    稀有度：<%=cdm.rarity.getName()%>
+                    <br>
+                    获取方式：<%=cdm.cardGetMethod.getName()%>
+                    <br>
+                    技能：<%=cdm.skill.getName()%>
+                    <br>
                 </ul>
+                <br>
+                </div>
+                特训前
+                <div>
+                    <%  if (cdm.rarity.getId() > 2){{%>
+                        <img src="image/card/card_<%=cardId%>_before.jpg" height="300" width="auto"> 
+                    <%} }else{ {%>
+                        <img src="image/card/card_<%=cardId%>_before.png" height="300" width="auto"> 
+                    <%}}
+                    %>
+                </div>
+                特训后
+                <div>
+                    <%  if (cdm.rarity.getId() > 2){{%>
+                        <img src="image/card/card_<%=cardId%>_after.jpg" height="300" width="auto"> 
+                    <%} }else{ {%>
+                        <img src="image/card/card_<%=cardId%>_after.png" height="300" width="auto"> 
+                    <%}}
+                    %>
+                </div>
             </div>  <!--左栏结束-->
         </div>  <!--大框架结束-->
     </body>
