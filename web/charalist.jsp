@@ -121,12 +121,60 @@
                     document.getElementById("card_list").innerHTML="";
                     for(var i in obj.cardList){
                         var div = document.createElement("div");
-                        div.innerHTML = 
-                            obj.cardList[i].cardName + "<br>" +
-                            obj.cardList[i].rarityName + " " +
-                            "持有"+obj.cardList[i].cardAmount + "张"
-                        ;
+                        div.id = "card";
+                        
+                        var div01 = document.createElement("div");
+                        div01.id="cardImage";
+                        div01.style = "background-image:url(image/card/card_"+ obj.cardList[i].cardId + "_icon.jpg);"
+                        div.appendChild(div01);
+                        
+                        var div02 = document.createElement("div");
+                        div02.id="cardDetail";
+                        div.appendChild(div02);
+                        
+                        var div03 = document.createElement("div");
+                        div03.id="cardInfo1";
+                        div02.appendChild(div03);
+                        
+                        var div04 = document.createElement("div");
+                        div04.id="cardInfo2";
+                        div02.appendChild(div04);
+                        
+                        var div11 = document.createElement("div");
+                        div11.id = "cardName";
+                        
+                        var div12 = document.createElement("div");
+                        /*id = cardRarity-[N,R,SR,SSR]*/
+                            
+                        var div13 = document.createElement("div");
+                        div13.id = "cardAmount";
+                        
+                        
+                        div11.innerHTML = obj.cardList[i].cardName;
+                        div03.appendChild(div11);
+                        
+                        if (obj.cardList[i].rarityName == "SSR") {
+                            div12.id = "cardRarity-SSR";
+                            div12.innerHTML = obj.cardList[i].rarityName;
+                            div04.appendChild(div12);
+                        } else if  (obj.cardList[i].rarityName == "SR") {
+                            div12.id = "cardRarity-SR";
+                            div12.innerHTML = obj.cardList[i].rarityName;
+                            div04.appendChild(div12);
+                        }  else if  (obj.cardList[i].rarityName == "R") {
+                            div12.id = "cardRarity-R";
+                            div12.innerHTML = obj.cardList[i].rarityName;
+                            div04.appendChild(div12);
+                        } else {
+                            div12.id = "cardRarity-N";
+                            div12.innerHTML = obj.cardList[i].rarityName;
+                            div04.appendChild(div12);
+                        }
+                        div13.innerHTML ="持有"+obj.cardList[i].cardAmount + "张";
+                        div04.appendChild(div13);
+                        
                         document.getElementById("card_list").appendChild(div);
+ 
                     }
                         
                 }

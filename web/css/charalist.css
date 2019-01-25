@@ -18,14 +18,16 @@ html, body, div, ul, li, h1, h2, h3, h4, h5, h6, p, dl, dt, dd, ol, form, input,
 }
 
 #type-cute{
+    margin: 5px;
     display: none;
     width: 100px;
     height:30px;
     text-align:center;
     margin:2px 0px 0px 0px;
     border: 1px solid gray; 
-    border-radius:30px;
-    color: #3b3b3b;
+    border-radius:20px;
+    color: #ab0941;
+    font-weight:bold;
     background-color: #ffe6ea;
 }
 
@@ -37,7 +39,8 @@ html, body, div, ul, li, h1, h2, h3, h4, h5, h6, p, dl, dt, dd, ol, form, input,
     margin:2px 0px 0px 0px;
     border: 1px solid gray; 
     border-radius:10px;
-    color: #3b3b3b;
+    color: #110c96;
+    font-weight:bold;
     background-color: #e3ffff;
 }
 
@@ -49,7 +52,8 @@ html, body, div, ul, li, h1, h2, h3, h4, h5, h6, p, dl, dt, dd, ol, form, input,
     margin:2px 0px 0px 0px;
     border: 1px solid gray; 
     border-radius:10px;
-    color: #3b3b3b;
+    color: #ff5e00;
+    font-weight:bold;
     background-color: #fff6b5;
 }
 
@@ -128,7 +132,7 @@ html, body, div, ul, li, h1, h2, h3, h4, h5, h6, p, dl, dt, dd, ol, form, input,
 }
 
 #chara-image{
-    background-color: #f0f0ea;
+    /*background-color: #f0f0ea;*/
     background-repeat: no-repeat;
     background-size: auto 100%;
 }
@@ -138,21 +142,21 @@ html, body, div, ul, li, h1, h2, h3, h4, h5, h6, p, dl, dt, dd, ol, form, input,
     flex-direction: column;
     width: 410px;
     height: 460px;
-    background-color: #4f3737;
+    /*background-color: #ebebeb;*/
 }
 
 .profile-right{
     display:flex;
     width: 270px;
     height: 460px;
-    background-color: #3f8053;
+    /*background-color: #3f8053*/;
 }
 
 .profile-left-1{
     margin: 5px 0px 0px 5px;
     width: 405px;
     height: 195px;
-    background-color: #e83861;
+    /*background-color: #e83861*/;
     background-repeat: no-repeat;
     background-position:bottom right;
 }
@@ -161,16 +165,95 @@ html, body, div, ul, li, h1, h2, h3, h4, h5, h6, p, dl, dt, dd, ol, form, input,
     margin: 0px 0px 5px 5px;
     width: 405px;
     height: 255px;
-    background-color: #f0f0ea;   
+    /*background-color: #f0f0ea*/;   
 }
 
 .profile-right-1{
     margin:10px 10px 10px 10px;
     width: 250px;
     height: 440px;
-    background-color: #f0fafa; 
-    overflow: auto;  
-    
+    /*background-color: #f0fafa*/; 
+    overflow: auto; 
+}
+
+#card {
+    display: flex;
+    margin: 2px;
+    padding: 2px;
+    width: 240px;
+    height: 55px;
+    border: 1px solid gray; 
+    border-radius:5px;
+    background-color: #ffffff;
+}
+
+#cardImage{
+   margin: 2px;
+   width:50px;
+   height:50px; 
+   background-color: #f0f0ea;
+   background-repeat: no-repeat;
+   background-size: 100% 100%;
+}
+
+#cardDetail{
+   width: 180px;
+   height: 48px;
+}
+
+#cardInfo1{
+   width: 190px;
+   height: 35px;
+}
+
+
+#cardInfo2{
+   display :flex;
+   width: 190px;
+   height: 15px;
+}
+
+#cardName{
+    font-size: 17px;
+    line-height: 17px;
+}
+
+#cardRarity-N{
+    width: 50px;
+    height: 15px;
+    font-size: 12px;
+    color: #7d7d7d;
+}
+
+#cardRarity-R{
+    width: 50px;
+    height: 15px;
+    font-size: 12px;
+    color: #fc912d;
+}
+
+#cardRarity-SR{
+    width: 50px;
+    height: 15px;
+    font-size: 12px;
+    color: #ffcc24;
+    font-weight:bold;
+}
+
+#cardRarity-SSR{
+    width: 50px;
+    height: 15px;
+    font-size: 12px;
+    color: #ff2672;
+    font-weight:bold;
+}
+
+#cardAmount{
+    width: 130px;
+    height: 15px;
+    font-size: 12px;
+    color: #7d7d7d;
+    text-align: right; 
 }
             
 
