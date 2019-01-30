@@ -16,14 +16,204 @@ h2 {
 }
 .content {
     display: flex;
-    height: 500px;
+    flex-wrap: wrap;
+    height: 550px;
     width: 1000px;
     margin: 20px auto;
     border: 1px solid #8F8F8F;
-    border-top: 3px solid #8F8F8F;
 }
 
-#card-info{
-    width: auto;
-    height: 500px;
+/* 版头 */
+.content-menu {
+    border: solid #CCCCCC;
+    border-width: 1px 0;
+    padding: 10px 0;
 }
+
+.content-menu ul {
+    margin: 0;
+    padding: 0;
+}
+
+.content-menu ul:after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+.content-menu ul li {
+    list-style: none;
+    width: 245px;
+    float: left;
+    border-left: solid 1px #CCCCCC;
+    padding: 0 10px;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.429;
+}
+
+.content-menu ul li:first-child {
+    border-left: none;
+}
+
+.content-menu ul li a {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+    padding: 5px 0;
+}
+.content-menu ul li a:hover,
+.content-menu ul li.current a {
+    background-color: #F2F2E5;
+}
+
+/*首页*/
+.index-page{
+    display:flex;
+    flex-wrap: wrap;
+    padding: 3px;
+    width:1000px;
+    height:480px;
+    overflow: auto;
+}
+
+.index-page .index-page-left{
+    display:flex;
+    flex-wrap: wrap;
+    padding: 3px;
+    width:480px;
+    height:400px;
+}
+
+.index-page .index-page-right{
+    display:flex;
+    flex-wrap: wrap;
+    padding: 3px;
+    width:480px;
+    height:400px;
+}
+
+/*持有卡牌一览*/
+.cardinstock{
+    display:flex;
+    flex-wrap: wrap;
+    width:1000px;
+    height:500px;
+    overflow: auto;
+}
+
+
+/*卡牌一览*/
+.card-list{
+    display:flex;
+    flex-wrap: wrap;
+    width:1000px;
+    height:450px;
+    overflow: auto;
+}
+
+.card-line{
+    display:flex;
+    width:800px;
+    height:50px;
+    
+}
+
+.card-line .card-one{
+   display: flex;
+   margin: 2px; 
+   padding-top: 2px;
+   padding-bottom: 2px;
+   width:850px;
+   height:40px;
+   border: 1px solid #8F8F8F;
+   border-radius:5px;
+   text-align: center;
+}
+
+.card-line .card-one #card-id{
+   margin: 2px;
+   padding-top: 15px;
+   width:50px;
+   height:35px;
+   text-align: center;
+}
+
+.card-line .card-one #card-image{
+   width:40px;
+   height:40px; 
+   background-color: #f0f0ea;
+   background-repeat: no-repeat;
+   background-size: 100% 100%;
+}
+
+.card-line .card-one #card-name{
+   width:300px;
+   height:38px;
+   padding-top:10px;
+   text-align: center;
+}
+
+.card-line .card-one #rarity{
+   width:50px;
+   height:38px;
+   padding-top:10px;
+   text-align: center;
+}
+
+.card-line .card-one #rarity #cardRarity-N{
+    width: 50px;
+    height: 15px;
+    font-size: 15px;
+    color: #7d7d7d;
+}
+
+.card-line .card-one #rarity #cardRarity-R{
+    width: 50px;
+    height: 15px;
+    font-size: 15px;
+    color: #fc912d;
+}
+
+.card-line .card-one #rarity #cardRarity-SR{
+    width: 50px;
+    height: 15px;
+    font-size: 15px;
+    color: #ffcc24;
+    font-weight:bold;
+}
+
+.card-line .card-one #rarity #cardRarity-SSR{
+    width: 50px;
+    height: 15px;
+    font-size: 15px;
+    color: #ff2672;
+    font-weight:bold;
+}
+
+.card-line .card-one #cardAmount{
+   width:100px;
+   height:38px;
+   padding-top:10px;
+   text-align: center;
+}
+
+.card-line .card-one #nameKanji{
+   margin: 2px;
+   width:200px;
+   height:38px;
+   padding-top:10px;
+   text-align: center;
+}
+
+.card-line .card-one #addCard{
+   margin: 2px;
+   width:100px;
+   height:40px;
+   padding-top:10px;
+   text-align: center;
+    
+}
+
+

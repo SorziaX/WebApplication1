@@ -20,12 +20,25 @@
     </head>
     <body>
         <div class="content">
-            <div class="content-menu">
-                <a href="index.html">返回</a>
-            </div>
+               <nav class="content-menu">
+                <ul>
+                    <li>
+                        <a href="index.html">首页</a>
+                    </li>
+                    <li>
+                        <a href="cardinstock.jsp">持有卡片一览</a>
+                    </li>
+                    <li class="current">
+                        <a href="charalist.jsp">CGSS角色一览</a>
+                    </li>
+                    <li>
+                        <a href="cardlist.jsp">CGSS卡牌一览</a>
+                    </li>
+                </ul>
+            </nav>
             
             <div class="chara-list">
-                
+              
                     <%
                         CharaMasterDAO dao = new CharaMasterDAO();
                         List<CharaMaster> list = dao.readChara();
@@ -79,9 +92,17 @@
             
 
             <script>
+                    
+                <%
+                    String idString = request.getParameter("id");
+                    if(idString != null){
+                        out.print("display(" + idString + ")");
+                    }
+                %>
+                
                 function display(charaId)
                 {
-                    var htmlobj=$.ajax({url:"charapage_process.jsp?id=" + charaId,async:false});
+                    var htmlobj=$.ajax({url:"charalist_process.jsp?id=" + charaId,async:false});
                     var jsonString = htmlobj.responseText;
                     
                     var obj = JSON.parse(jsonString)
@@ -153,7 +174,7 @@
                         div13.id = "cardAmount";
                         
                         
-                        div11.innerHTML = obj.cardList[i].cardName;
+                        div11.innerHTML = "<a href=\"cardpage.jsp?id="+obj.cardList[i].cardId + "\">" + obj.cardList[i].cardName + "</a>";
                         div03.appendChild(div11);
                         
                         if (obj.cardList[i].rarityName == "SSR") {

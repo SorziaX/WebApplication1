@@ -10,13 +10,53 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>CGSS TAKE MY MONEY</title>
         <link rel="stylesheet" href="css/style.css">
+        <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
     </head>
     <body>
-        <a href="cardinstock.jsp">持有卡片一览</a>
-        <br><br>
-        <a href="charalist.jsp">CGSS角色一览</a>
-        <br>
-        <a href="cardlist.jsp">CGSS卡牌一览</a>
- 
+        <div class="content">
+            <nav class="content-menu">
+                <ul>
+                    <li class="current">
+                        <a href="index.html">首页</a>
+                    </li>
+                    <li>
+                        <a href="cardinstock.jsp">持有卡片一览</a>
+                    </li>
+                    <li>
+                        <a href="charalist.jsp">CGSS角色一览</a>
+                    </li>
+                    <li>
+                        <a href="cardlist.jsp">CGSS卡牌一览</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="index-page">
+                <div class="index-page-left">
+                    <p id="cardAmount"><p>
+                    <p id="cisDistinctAmount"></p>
+                </div>
+                <div class="index-page-right">
+                    <div id="cardAmount-top5"></div>
+                </div>
+            </div>
+        </div>
+        <script>
+                index();
+                
+                function index()
+                {
+                    var htmlobj=$.ajax({url:"index_process.jsp",async:false});
+                    var jsonString = htmlobj.responseText;
+                    
+                    var obj = JSON.parse(jsonString)
+                    document.getElementById("cardAmount").innerHTML = "CGSS共有卡片" + obj.cardAmount + "张。";
+                    document.getElementById("cisDistinctAmount").innerHTML = "您已获得其中" + obj.cisDistinctAmount 
+                            + "种，占总数的" + obj.cardPercent + "%。" ;
+                        
+                }
+                
+                
+                    
+            </script>
     </body>
 </html>

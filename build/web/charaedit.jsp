@@ -244,7 +244,7 @@
             }
         
         %>      
-        
+            <a href="charalist.jsp?id=<%=cm.getId()%>">返回角色介绍</a>
             <form method="post" action="charaedit.jsp?id=<%=cm.getId()%>" accept-charset="UTF-8">
             <br>
             <table>

@@ -38,7 +38,7 @@ public class CardInStockDAO extends BaseDAO{
             + " LEFT JOIN 02_cardmaster t2 ON t1.card_id = t2.id"
             + " LEFT JOIN 03_charamaster t3 ON t2.chara_id = t3.id"
             + " LEFT JOIN 06_rarity t6 ON t2.rarity_id = t6.id"
-            + " ORDER BY t1.id"; 
+            + " ORDER BY t1.id DESC"; 
         
         ResultSet rs = this.execute(sql);
         
@@ -222,5 +222,52 @@ public class CardInStockDAO extends BaseDAO{
         
         this.close();
         
+    }
+    
+    public int countCIS(){
+        
+        String sql = null;
+        int CISAmount = 0;
+        
+        sql = "SELECT count(*)"
+            + " FROM 01_cardinstock t1";
+        
+        System.out.println(sql);
+        
+        ResultSet rs = this.execute(sql);
+                
+        try{
+            rs.next();
+            CISAmount = rs.getInt(1);
+                            
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {}
+        
+        this.close();
+        return CISAmount;
+    }
+    
+    public int countDistinctCIS(){
+        String sql = null;
+        int distinctCISAmount = 0;
+        
+        sql = "SELECT count(DISTINCT card_id)"
+            + " FROM 01_cardinstock t1";
+        
+        System.out.println(sql);
+        
+        ResultSet rs = this.execute(sql);
+                
+        try{
+            rs.next();
+            distinctCISAmount = rs.getInt(1);
+                            
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {}
+        
+        this.close();
+        return distinctCISAmount;
     }
 }

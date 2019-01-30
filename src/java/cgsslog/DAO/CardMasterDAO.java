@@ -251,5 +251,29 @@ public class CardMasterDAO extends BaseDAO {
         this.close();
         return cdm;
     }
+
+    public int countCard(){
+        
+        String sql = null;
+        int cardAmount = 0;
+        
+        sql = "SELECT count(*)"
+            + " FROM 02_cardmaster t2";
+        
+        System.out.println(sql);
+        
+        ResultSet rs = this.execute(sql);
+        
+        try {
+            rs.next();
+            cardAmount = rs.getInt(1);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {}
+        
+        this.close();
+        return cardAmount;
+
+    }
 }
 
